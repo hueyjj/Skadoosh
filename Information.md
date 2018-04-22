@@ -20,6 +20,8 @@ This guide is meant to give a detailed description on the technology stack used 
   12. [Development Process](#Development-Process)
 
 ## Skadoosh
+<a name="Skadoosh"></a>
+
 Skadoosh is a web application built on top of the UCSC's class searching API with support for tracking major and GE requirements, scheduling classes, login system, class and professor rating system with user reviews. 
 
 Skadoosh's foremost purpose is to help the user build their schedule faster and view it visually better than the current way in UCSC's portal.
