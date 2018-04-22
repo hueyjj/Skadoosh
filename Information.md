@@ -4,7 +4,7 @@ This guide is meant to give a detailed description on the technology stack used 
 ## Table of Contents
 
   1. [Skadoosh](#skadoosh)
-      1. [Why?](#why?)
+      1. [Why?](#why)
   2. [Technology Stack](#technology-stack)
       1. [Front-end](#front-end)
       2. [Back-end](#back-end)
