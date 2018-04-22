@@ -27,7 +27,7 @@ Skadoosh's foremost purpose is to help the user build their schedule faster and 
 ### Why?
 The school's class search API at https://pisa.ucsc.edu/class_search/ has a few problems. First, it does not allow the user to compare their schedule or build their schedule, which can waste the user's time if they do not plan carefully. Second, it loses the previous format data when a user attempts to return to the search form, either through the web browser's back functionality or a return to the original url (https://pisa.ucsc.edu/class_search/). 
 
-The user interface in MyUCSC portal that has a schedule builder is unintuitive, buggy, and something from the early 2000's. The portal overall has an incredibly high delay (in seconds) when navigating the site, submitting data, or using any basic functionality really.
+The user interface in MyUCSC portal that has a schedule builder is unintuitive, buggy, and something from the early 2000s. The portal overall has an incredibly high delay (in seconds) when navigating the site, submitting data, or using any basic functionality really.
 
 ## Technology Stack
 ### Front-end
