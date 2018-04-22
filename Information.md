@@ -3,25 +3,23 @@ This guide is meant to give a detailed description on the technology stack used 
 
 ## Table of Contents
 
-  1. [Skadoosh](#Skadoosh)
-      1. [Why?](#Why?)
-  2. [Technology Stack](#Technology-Stack)
-      1. [Front-end](#Front-end)
-      2. [Back-end](#Back-end)
-  3. [Server hosting](#Server-hosting)
-  4. [Conventions](#Conventions)
-  5. [Version Control](#Version-Control)
-  6. [Editors](#Editors)
-  7. [Terminals](#Terminals)
-  8. [Communication](#Communication)
-  9. [Mockup](#Mockup)
-  10. [Task Board](#Task-Board)
-  11. [Documents](#Documents)
-  12. [Development Process](#Development-Process)
+  1. [Skadoosh](#skadoosh)
+      1. [Why?](#why?)
+  2. [Technology Stack](#technology-stack)
+      1. [Front-end](#front-end)
+      2. [Back-end](#back-end)
+  3. [Server hosting](#server-hosting)
+  4. [Conventions](#conventions)
+  5. [Version Control](#version-control)
+  6. [Editors](#editors)
+  7. [Terminals](#terminals)
+  8. [Communication](#communication)
+  9. [Mockup](#mockup)
+  10. [Task Board](#task-board)
+  11. [Documents](#documents)
+  12. [Development Process](#development-process)
 
 ## Skadoosh
-<a name="Skadoosh"></a>
-
 Skadoosh is a web application built on top of the UCSC's class searching API with support for tracking major and GE requirements, scheduling classes, login system, class and professor rating system with user reviews. 
 
 Skadoosh's foremost purpose is to help the user build their schedule faster and view it visually better than the current way in UCSC's portal.
