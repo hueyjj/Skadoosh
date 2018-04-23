@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import "../styles/Root.css";
 
 import Counter from "../components/Counter";
+import Button from 'material-ui/Button';
 
 class Root extends Component {
   render() {
@@ -26,6 +27,9 @@ class Root extends Component {
         >
           -
         </button>
+        <Button variant="raised" color="primary">
+          Hello World
+        </Button>
       </div>
     );
   }

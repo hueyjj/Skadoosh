@@ -26,6 +26,8 @@
   ],
   "version": "0.1.0",
   "dependencies": {
+    "@material-ui/icons": "^1.0.0-beta.43",
+    "material-ui": "^1.0.0-beta.43",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-draggable": "^3.0.5",
@@ -35,7 +37,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "serve": "^6.5.5"
+    "serve": "^6.5.5",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "dev": "react-scripts start",
