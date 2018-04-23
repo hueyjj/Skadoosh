@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -64,6 +66,8 @@ class Header extends Component {
             </Button>
             <Button
               className={classes.button}
+              component={Link}
+              to="/signup"
               color="inherit"
             >
               Signup

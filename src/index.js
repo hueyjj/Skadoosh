@@ -17,6 +17,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <Switch>
+        {/* TODO Check if user is logged in and has valid session token, then route to Home or Signup page */}
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/signup" component={SignupContainer} />
       </Switch>

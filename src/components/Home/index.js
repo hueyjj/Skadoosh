@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 
 import Header from "./Header";
+import Footer from "./Footer";
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -19,16 +18,18 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <Header>
-        </Header>
+        <Header />
         <Paper className={this.props.classes.root} elevation={4}>
           <Typography variant="headline" component="h3">
-            This is a sheet of paper.
+            What is Skadoosh?
           </Typography>
           <Typography component="p">
-            Paper can be used to build surface or other elements for your application.
+            Skadoosh is a web application built on top of the UCSC's class searching API with support for tracking major and GE requirements, scheduling classes, login system, class and professor rating system with user reviews.
+
+            Skadoosh's foremost purpose is to help the user build their schedule faster and view it visually better than the current way in UCSC's portal.
           </Typography>
         </Paper>
+        <Footer />
       </div>
     );
   }
