@@ -5,10 +5,11 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import blue from 'material-ui/colors/blue';
 import Icon from 'material-ui/Icon';
+import IconButton from 'material-ui/IconButton';
+import Home from '@material-ui/icons/Home';
 import { withStyles } from 'material-ui/styles';
 
 const styles = theme => ({
@@ -18,6 +19,7 @@ const styles = theme => ({
   title: {
     flex: 1,
     margin: theme.spacing.unit * 2,
+    textDecoration: "none",
   },
   icon: {
     margin: theme.spacing.unit * 2,
@@ -44,13 +46,14 @@ class Header extends Component {
           color="default"
         >
           <Toolbar>
-            <Icon
+            <IconButton
+              color="primary"
               className={classes.iconHover}
-              color="action"
-              style={{ fontSize: 36 }}
+              component={Link}
+              to="/"
             >
-              home
-            </Icon>
+              <Home />
+            </IconButton>
             <Typography
               className={classes.title}
               color="inherit"

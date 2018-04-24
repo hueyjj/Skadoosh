@@ -19,8 +19,14 @@ class Home extends Component {
     return (
       <div className="home">
         <Header />
-        <Paper className={this.props.classes.root} elevation={4}>
-          <Typography variant="headline" component="h3">
+        <Paper
+          className={this.props.classes.root}
+          elevation={4}
+        >
+          <Typography
+            variant="headline"
+            component="h3"
+          >
             What is Skadoosh?
           </Typography>
           <Typography component="p">

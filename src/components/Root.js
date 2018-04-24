@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import "../styles/Root.css";
 
-import Counter from "../components/Counter";
 import Button from 'material-ui/Button';
 
 class Root extends Component {
@@ -12,8 +11,6 @@ class Root extends Component {
 
     return (
       <div className="root">
-        <Counter counter={counter} />
-
         <button
           id="add-button"
           onClick={increment}
