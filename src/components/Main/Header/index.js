@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
-import MenuIcon from '@material-ui/icons/Menu';
 import blue from 'material-ui/colors/blue';
 import Icon from 'material-ui/Icon';
-import IconButton from 'material-ui/IconButton';
-import Home from '@material-ui/icons/Home';
 import { withStyles } from 'material-ui/styles';
+
+import Home from '@material-ui/icons/Home';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Settings from '@material-ui/icons/Settings';
 
 const styles = theme => ({
   root: {
@@ -64,9 +67,27 @@ class Header extends Component {
             >
               Skadoosh
             </Typography>
+            <IconButton
+              color="primary"
+              className={classes.iconHover}
+              component={Link}
+              to="/profile"
+            >
+              <AccountCircle />
+            </IconButton>
+            <IconButton
+              color="primary"
+              className={classes.iconHover}
+              component={Link}
+              to="/settings"
+            >
+              <Settings />
+            </IconButton>
             <Button
               className={classes.button}
               color="inherit"
+              component={Link}
+              to="/logout"
             >
               Logout
             </Button>

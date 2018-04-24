@@ -15,6 +15,7 @@ import { withStyles } from 'material-ui/styles';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    margin: theme.spacing.unit * 2,
   },
   title: {
     flex: 1,

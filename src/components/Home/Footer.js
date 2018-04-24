@@ -11,7 +11,7 @@ const styles = theme => ({
     flexDirection: "row",
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
+    margin: theme.spacing.unit * 2,
   }),
   row: {
     display: 'flex',
