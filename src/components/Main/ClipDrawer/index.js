@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import classNames from 'classnames';
+
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
@@ -27,14 +30,15 @@ const styles = theme => ({
 });
 
 class ClipDrawer extends Component {
+  //TODO classes.hide should depend on Drawer's open property, handled by redux
   render() {
     const { classes } = this.props;
     return (
       <Drawer
         variant="persistent"
-        open={false}
+        open={true}
         classes={{
-          paper: classes.drawerPaper,
+          paper: classNames(classes.drawerPaper),
         }}
       >
         <div className={classes.toolbar} />
