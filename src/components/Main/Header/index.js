@@ -53,12 +53,11 @@ class Header extends Component {
             className={classes.toolbar}
           >
             <IconButton
-              color="primary"
-              className={classes.iconHover}
-              component={Link}
-              to="/"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={this.handleDrawerOpen}
             >
-              <Home />
+              <MenuIcon />
             </IconButton>
             <Typography
               className={classes.title}
@@ -93,7 +92,7 @@ class Header extends Component {
             </Button>
           </Toolbar>
         </AppBar>
-      </ div>
+      </ div >
     );
   }
 }
