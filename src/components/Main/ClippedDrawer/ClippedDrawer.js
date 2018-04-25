@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import classNames from 'classnames';
 
@@ -10,9 +11,9 @@ import Divider from 'material-ui/Divider';
 import { withStyles } from 'material-ui/styles';
 
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
 import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
+import CalendarIcon from '@material-ui/icons/DateRange';
 import SendIcon from '@material-ui/icons/Send';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -20,8 +21,8 @@ import ReportIcon from '@material-ui/icons/Report';
 
 const styles = theme => ({
   drawerPaper: {
-    position: 'relative',
-    width: 240,
+    position: 'fixed',
+    width: 64,
   },
   hide: {
     display: "none",
@@ -29,7 +30,7 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
-class ClipDrawer extends Component {
+class ClippedDrawer extends Component {
   //TODO classes.hide should depend on Drawer's open property, handled by redux
   render() {
     const { classes } = this.props;
@@ -44,29 +45,33 @@ class ClipDrawer extends Component {
         <div className={classes.toolbar} />
         <List>
           <div>
-            <ListItem button>
+            <ListItem
+              button
+              component={Link}
+              to="/main"
+            >
               <ListItemIcon>
-                <InboxIcon />
+                <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
             </ListItem>
-            <ListItem button>
+            <ListItem
+              button
+              component={Link}
+              to="/main/foo"
+            >
               <ListItemIcon>
-                <StarIcon />
+                <CalendarIcon />
               </ListItemIcon>
-              <ListItemText primary="Starred" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <SendIcon />
               </ListItemIcon>
-              <ListItemText primary="Send mail" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
             </ListItem>
           </div>
         </List>
@@ -77,19 +82,16 @@ class ClipDrawer extends Component {
               <ListItemIcon>
                 <MailIcon />
               </ListItemIcon>
-              <ListItemText primary="All mail" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <DeleteIcon />
               </ListItemIcon>
-              <ListItemText primary="Trash" />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <ReportIcon />
               </ListItemIcon>
-              <ListItemText primary="Spam" />
             </ListItem>
           </div>
         </List>
@@ -97,4 +99,4 @@ class ClipDrawer extends Component {
     );
   }
 }
-export default withStyles(styles)(ClipDrawer);
+export default withStyles(styles)(ClippedDrawer);
