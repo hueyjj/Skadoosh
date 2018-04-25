@@ -8,7 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import moment from 'moment';
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'bootstrap/dist/css/bootstrap.min.css'
 
 moment.locale("en");
 BigCalendar.momentLocalizer(moment)

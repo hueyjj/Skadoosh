@@ -12,6 +12,7 @@ import { withStyles } from 'material-ui/styles';
 
 import Home from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SettingsIcon from '@material-ui/icons/Settings';
 
@@ -23,8 +24,6 @@ const styles = theme => ({
     flex: 1,
     marginLeft: theme.spacing.unit * 2,
     textDecoration: "none",
-  },
-  icon: {
   },
   iconHover: {
     '&:hover': {
@@ -49,9 +48,9 @@ class Header extends Component {
 
   _onHandleDrawer(e) {
     const { isDrawerOpen } = this.props.drawer;
-    const { 
-      showDrawer, 
-      hideDrawer, 
+    const {
+      showDrawer,
+      hideDrawer,
     } = this.props;
 
     if (isDrawerOpen) {
@@ -63,6 +62,7 @@ class Header extends Component {
 
   render() {
     const { classes } = this.props;
+    const { isDrawerOpen } = this.props.drawer;
 
     return (
       <div className={classes.root}>
@@ -78,7 +78,7 @@ class Header extends Component {
               aria-label="open drawer"
               onClick={this._onHandleDrawer}
             >
-              <MenuIcon />
+              {isDrawerOpen ? <ArrowBackIcon /> : <MenuIcon /> }
             </IconButton>
             <Typography
               className={classes.title}
@@ -89,7 +89,6 @@ class Header extends Component {
             </Typography>
             <IconButton
               color="primary"
-              className={classes.iconHover}
               component={Link}
               to="/profile"
             >
@@ -97,14 +96,12 @@ class Header extends Component {
             </IconButton>
             <IconButton
               color="primary"
-              className={classes.iconHover}
               component={Link}
               to="/settings"
             >
               <SettingsIcon />
             </IconButton>
             <Button
-              className={classes.button}
               color="inherit"
               component={Link}
               to="/logout"
