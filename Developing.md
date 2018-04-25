@@ -42,7 +42,7 @@ heroku local web
 
 Check the build log on Heroku's server.
 ```sh
-heroku log
+heroku logs
 ```
 
 # Git
