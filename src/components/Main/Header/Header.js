@@ -41,8 +41,29 @@ const styles = theme => ({
 });
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this._onHandleDrawer = this._onHandleDrawer.bind(this)
+  }
+
+  _onHandleDrawer(e) {
+    const { isDrawerOpen } = this.props.drawer;
+    const { 
+      showDrawer, 
+      hideDrawer, 
+    } = this.props;
+
+    if (isDrawerOpen) {
+      hideDrawer();
+    } else {
+      showDrawer();
+    }
+  }
+
   render() {
     const { classes } = this.props;
+
     return (
       <div className={classes.root}>
         <AppBar
@@ -55,7 +76,7 @@ class Header extends Component {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={this.handleDrawerOpen}
+              onClick={this._onHandleDrawer}
             >
               <MenuIcon />
             </IconButton>

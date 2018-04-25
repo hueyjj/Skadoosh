@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Calendar from '../components/Main/Calendar';
+import Search from '../components/Main/Search';
 
-const CalendarContainer = props => <Calendar {...props} />;
+const SearchContainer = props => <Search {...props} />;
 
 const mapStateToProps = (state) => {
 //   const { } = state;
@@ -15,4 +15,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
