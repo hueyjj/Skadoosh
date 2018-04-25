@@ -27,7 +27,6 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
     minWidth: 0, // So the Typography noWrap works
     marginTop: theme.spacing.unit * 7,
@@ -71,7 +70,12 @@ class Root extends Component {
           showDrawer={showDrawer}
           hideDrawer={hideDrawer}
         />
-        <div className={classNames(classes.main, classes.fullHeight)}>
+        <div
+          className={classNames(
+            classes.main,
+            classes.fullHeight
+          )}
+        >
           <ClippedDrawer
             drawer={drawer}
           />

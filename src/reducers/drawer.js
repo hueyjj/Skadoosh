@@ -1,6 +1,7 @@
 import * as types from "../constants/DrawerActions";
 
 const initialState = {
+  isDrawerOpen: true,
 };
 
 const drawer = (state = initialState, action) => {
