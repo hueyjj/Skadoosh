@@ -11,6 +11,7 @@ import configureStore from './store/configureStore';
 
 import RootContainer from "./containers/RootContainer";
 import HomeContainer from "./containers/HomeContainer";
+import LoginContainer from "./containers/LoginContainer";
 import SignupContainer from "./containers/SignupContainer";
 
 let store = configureStore();
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/signup" component={SignupContainer} />
           <Route path="/main" component={RootContainer} />
         </Switch>

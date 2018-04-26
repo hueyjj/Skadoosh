@@ -64,6 +64,8 @@ class Header extends Component {
             </Typography>
             <Button
               className={classes.button}
+              component={Link}
+              to="/login"
               color="inherit"
             >
               Login
