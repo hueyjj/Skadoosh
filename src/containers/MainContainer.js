@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Search from '../components/main/Search';
+import Main from '../components/main/Main';
 
-const SearchContainer = props => <Search {...props} />;
+const MainContainer = props => <Main {...props} />;
 
 const mapStateToProps = (state) => {
 //   const { } = state;
@@ -15,4 +16,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

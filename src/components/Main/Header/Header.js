@@ -14,7 +14,6 @@ import Home from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import SettingsIcon from '@material-ui/icons/Settings';
 
 const styles = theme => ({
   root: {
@@ -94,14 +93,6 @@ class Header extends Component {
               to="/profile"
             >
               <AccountCircleIcon />
-            </IconButton>
-            <IconButton
-              color="primary"
-              className={classes.iconHover}
-              component={Link}
-              to="/settings"
-            >
-              <SettingsIcon />
             </IconButton>
             <Button
               color="inherit"

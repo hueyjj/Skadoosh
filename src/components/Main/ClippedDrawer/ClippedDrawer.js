@@ -6,8 +6,11 @@ import classNames from 'classnames';
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
+import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
+import blue from 'material-ui/colors/blue';
+import red from 'material-ui/colors/red';
 import { withStyles, spacing } from 'material-ui/styles';
 
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -17,6 +20,9 @@ import CalendarIcon from '@material-ui/icons/DateRange';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import SearchIcon from '@material-ui/icons/Search';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ChatIcon from '@material-ui/icons/ChatBubbleOutline';
+import ReviewIcon from "@material-ui/icons/RateReview";
+import SettingsIcon from '@material-ui/icons/Settings';
 import ReportIcon from '@material-ui/icons/Report';
 
 const drawerWidth = 72;
@@ -31,6 +37,18 @@ const styles = theme => ({
     // display: "none",
     marginLeft: -drawerWidth,
     transition: "all 0.3s ease",
+  },
+  iconRotate: {
+    '&:hover': {
+      color: blue[200],
+      transform: "rotate(90deg)",
+      transition: "all 0.3s ease",
+    },
+  },
+  iconHoverRed: {
+    "&:hover": {
+      color: red[200],
+    }
   },
   toolbar: theme.mixins.toolbar,
 });
@@ -84,6 +102,24 @@ class ClippedDrawer extends Component {
             <ListItem
               button
               component={Link}
+              to="/main/chat"
+            >
+              <ListItemIcon>
+                <ChatIcon />
+              </ListItemIcon>
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
+              to="/main/review"
+            >
+              <ListItemIcon>
+                <ReviewIcon />
+              </ListItemIcon>
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
               to="/main/search"
             >
               <ListItemIcon>
@@ -95,14 +131,32 @@ class ClippedDrawer extends Component {
         <Divider />
         <List>
           <div>
-            <ListItem button>
-              <ListItemIcon>
+            <ListItem
+              button
+              color="primary"
+              component={Link}
+              to="/main/settings"
+            >
+              <ListItemIcon
+                className={classNames(classes.iconRotate)}
+              >
+                <SettingsIcon />
+              </ListItemIcon>
+            </ListItem>
+            <ListItem
+              button
+              component={Link}
+              to="/main/report"
+            >
+              <ListItemIcon
+                className={classNames(classes.iconHoverRed)}
+              >
                 <ReportIcon />
               </ListItemIcon>
             </ListItem>
           </div>
         </List>
-      </Drawer>
+      </Drawer >
     );
   }
 }

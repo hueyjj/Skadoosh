@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import RequirementChart from '../components/Main/RequirementChart';
+import RequirementChart from '../components/main/RequirementChart';
 
 const RequirementChartContainer = props => <RequirementChart {...props} />;
 
