@@ -31,9 +31,11 @@ const styles = theme => ({
     minWidth: 0, // So the Typography noWrap works
     marginTop: theme.spacing.unit * 7,
     marginBottom: theme.spacing.unit * 7,
+    transition: "all 0.3s ease",
   },
   contentShift: {
     marginLeft: theme.spacing.unit * 9,
+    transition: "all 0.3s ease",
   },
   fullHeight: {
     height: "100%",

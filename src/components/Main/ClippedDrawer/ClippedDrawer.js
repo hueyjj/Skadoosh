@@ -19,13 +19,18 @@ import SearchIcon from '@material-ui/icons/Search';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
 
+const drawerWidth = 72;
+
 const styles = theme => ({
   drawerPaper: {
     position: 'fixed',
-    width: theme.spacing.unit * 9,
+    width: drawerWidth,
+    transition: "all 0.3s ease",
   },
   hide: {
-    display: "none",
+    // display: "none",
+    marginLeft: -drawerWidth,
+    transition: "all 0.3s ease",
   },
   toolbar: theme.mixins.toolbar,
 });

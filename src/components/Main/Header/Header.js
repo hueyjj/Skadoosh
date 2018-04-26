@@ -28,7 +28,8 @@ const styles = theme => ({
   iconHover: {
     '&:hover': {
       color: blue[200],
-      cursor: "pointer",
+      transform: "rotate(90deg)",
+      transition: "all 0.3s ease",
     },
   },
   button: {
@@ -96,6 +97,7 @@ class Header extends Component {
             </IconButton>
             <IconButton
               color="primary"
+              className={classes.iconHover}
               component={Link}
               to="/settings"
             >
