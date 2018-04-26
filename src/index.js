@@ -15,6 +15,7 @@ import LoginContainer from "./containers/LoginContainer";
 import SignupContainer from "./containers/SignupContainer";
 
 let store = configureStore();
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
