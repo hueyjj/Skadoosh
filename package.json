@@ -50,6 +50,6 @@
     "serve": "serve -s build",
     "local-prod": "npm run build&&npm run serve",
     "prod": "npm run serve",
-    "heroku-prebuild": "npm run build"
+    "heroku-postbuild": "npm run build"
   }
 }
