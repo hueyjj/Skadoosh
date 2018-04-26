@@ -48,6 +48,8 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "serve": "serve -s build",
-    "prod": "npm run build&&npm run serve"
+    "local-prod": "npm run build&&npm run serve",
+    "prod": "npm run serve",
+    "heroku-prebuild": "npm run build"
   }
 }
