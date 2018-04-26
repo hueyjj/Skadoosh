@@ -33,7 +33,7 @@ const styles = theme => ({
   }
 });
 
-class Signup extends Component {
+class Login extends Component {
   render() {
     const { classes } = this.props;
 
@@ -89,4 +89,4 @@ class Signup extends Component {
   }
 }
 
-export default withStyles(styles)(Signup);
+export default withStyles(styles)(Login);
