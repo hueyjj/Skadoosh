@@ -9,7 +9,7 @@ import { withStyles } from 'material-ui/styles';
 
 import "../styles/Root.css";
 
-// import Header from "./main/Header";
+import Header from './main/Header';
 import ClippedDrawer from "./main/ClippedDrawer";
 import MainContainer from "../containers/MainContainer";
 import CalendarContainer from "../containers/CalendarContainer";
@@ -70,11 +70,11 @@ class Root extends Component {
 
     return (
       <div className={classes.fullHeight}>
-        {/* <Header
+        <Header
           drawer={drawer}
           showDrawer={showDrawer}
           hideDrawer={hideDrawer}
-        /> */}
+        />
         <div
           className={classNames(
             classes.main,
