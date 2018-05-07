@@ -58,13 +58,10 @@ class Login extends Component {
     const { fetchLogin } = this.props;
 
     fetchLogin({
-      // email: this.state.email,
-      // password: this.state.password,
-      email: "proud@ucsc.edu",
-      password: "Password123",
+      email: this.state.email,
+      password: this.state.password,
     }, (error) => {
       if (error) {
-        // TODO: Implement this
         throw error;
       }
 

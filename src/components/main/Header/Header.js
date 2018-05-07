@@ -64,10 +64,10 @@ class Header extends Component {
 
     fetchLogout((error) => {
       if (error) {
-        // TODO: Implement this
-        return;
+        throw error;
       }
-      console.log("Logout successsful")      
+
+      this.props.history.push("/");
     })
   }
 
@@ -97,6 +97,11 @@ class Header extends Component {
               variant="title"
             >
               Skadoosh
+            </Typography>
+            <Typography
+              variant="button"
+            >
+              Email or real name or cruz id here?
             </Typography>
             <IconButton
               color="primary"

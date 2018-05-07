@@ -51,6 +51,7 @@ class Root extends Component {
       match,
     } = this.props;
     const {
+      history,
       drawer,
       showDrawer,
       hideDrawer,
@@ -63,6 +64,7 @@ class Root extends Component {
     return (
       <div className={classes.fullHeight}>
         <Header
+          history={history}
           drawer={drawer}
           showDrawer={showDrawer}
           hideDrawer={hideDrawer}
