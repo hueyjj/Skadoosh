@@ -7,10 +7,8 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import blue from 'material-ui/colors/blue';
-import Icon from 'material-ui/Icon';
 import { withStyles } from 'material-ui/styles';
 
-import Home from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -43,10 +41,11 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
-    this._onHandleDrawer = this._onHandleDrawer.bind(this)
+    this.handleDrawer = this.handleDrawer.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  _onHandleDrawer(e) {
+  handleDrawer(e) {
     const { isDrawerOpen } = this.props.drawer;
     const {
       showDrawer,
@@ -58,6 +57,18 @@ class Header extends Component {
     } else {
       showDrawer();
     }
+  }
+
+  handleLogout(e) {
+    const { fetchLogout } = this.props;
+
+    fetchLogout((error) => {
+      if (error) {
+        // TODO: Implement this
+        return;
+      }
+      console.log("Logout successsful")      
+    })
   }
 
   render() {
@@ -76,9 +87,9 @@ class Header extends Component {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={this._onHandleDrawer}
+              onClick={this.handleDrawer}
             >
-              {isDrawerOpen ? <ArrowBackIcon /> : <MenuIcon /> }
+              {isDrawerOpen ? <ArrowBackIcon /> : <MenuIcon />}
             </IconButton>
             <Typography
               className={classes.title}
@@ -96,8 +107,7 @@ class Header extends Component {
             </IconButton>
             <Button
               color="inherit"
-              component={Link}
-              to="/logout"
+              onClick={this.handleLogout}
             >
               Logout
             </Button>

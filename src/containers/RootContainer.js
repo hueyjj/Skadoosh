@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import Root from '../components/Root';
 
 import {
+  fetchLogout,
+} from "../actions/AuthActions";
+import {
   showDrawer,
   hideDrawer,
 } from "../actions/DrawerActions";
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
+  fetchLogout,
   showDrawer,
   hideDrawer,
 };

@@ -3,8 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 import classNames from 'classnames';
 
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 
 import "../styles/Root.css";
@@ -46,13 +44,6 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
-const noStyles = {
-  calendar: {
-    minHeight: 500,
-    margin: 16,
-  },
-}
-
 class Root extends Component {
   render() {
     const {
@@ -63,6 +54,7 @@ class Root extends Component {
       drawer,
       showDrawer,
       hideDrawer,
+      fetchLogout,
     } = this.props;
     const {
       isDrawerOpen,
@@ -74,6 +66,7 @@ class Root extends Component {
           drawer={drawer}
           showDrawer={showDrawer}
           hideDrawer={hideDrawer}
+          fetchLogout={fetchLogout}
         />
         <div
           className={classNames(
@@ -87,18 +80,42 @@ class Root extends Component {
           <div
             className={classNames(
               classes.content,
-              isDrawerOpen ? classes.contentShift : null
+              isDrawerOpen ? classes.contentShift : null,
             )}
           >
             <Switch>
-              <Route exact path={`${match.url}/`} component={MainContainer} />
-              <Route path={`${match.url}/calendar`} component={CalendarContainer} />
-              <Route path={`${match.url}/requirement`} component={RequirementChartContainer} />
-              <Route path={`${match.url}/chat`} component={ChatContainer} />
-              <Route path={`${match.url}/review`} component={ReviewContainer} />
-              <Route path={`${match.url}/search`} component={SearchContainer} />
-              <Route path={`${match.url}/settings`} component={UserSettingsContainer} />
-              <Route path={`${match.url}/report`} component={ReportContainer} />
+              <Route
+                exact path={`${match.url}/`}
+                component={MainContainer}
+              />
+              <Route
+                path={`${match.url}/calendar`}
+                component={CalendarContainer}
+              />
+              <Route
+                path={`${match.url}/requirement`}
+                component={RequirementChartContainer}
+              />
+              <Route
+                path={`${match.url}/chat`}
+                component={ChatContainer}
+              />
+              <Route
+                path={`${match.url}/review`}
+                component={ReviewContainer}
+              />
+              <Route
+                path={`${match.url}/search`}
+                component={SearchContainer}
+              />
+              <Route
+                path={`${match.url}/settings`}
+                component={UserSettingsContainer}
+              />
+              <Route
+                path={`${match.url}/report`}
+                component={ReportContainer}
+              />
             </Switch>
           </div>
         </div>

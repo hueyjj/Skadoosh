@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import classNames from 'classnames';
+
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
@@ -47,7 +49,7 @@ class Signup extends Component {
             elevation={4}
             className={classes.paper}
           >
-            <Typography variant="headline" component="h3">
+          <Typography variant="headline" component="h3">
               Create an Account
           </Typography>
             <form>
@@ -63,6 +65,7 @@ class Signup extends Component {
               </div>
               <div>
                 <TextField
+                  required
                   id="password-input"
                   label="Password"
                   className={classes.textField}
@@ -73,7 +76,8 @@ class Signup extends Component {
               </div>
               <div>
                 <TextField
-                  id="password-input"
+                  required
+                  id="confirm-password-input"
                   label="Confirm Password"
                   className={classes.textField}
                   type="password"
@@ -81,7 +85,12 @@ class Signup extends Component {
                   margin="normal"
                 />
               </div>
-              <div className={`${classes.centerButton} ${classes.paddingTop}`}>
+              <div
+                className={classNames(
+                  classes.centerButton,
+                  classes.paddingTop
+                )}
+              >
                 <Button
                   type="submit"
                   variant="raised"

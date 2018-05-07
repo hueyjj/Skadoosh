@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import BigCalendar from 'react-big-calendar';
 
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 
 import moment from 'moment';

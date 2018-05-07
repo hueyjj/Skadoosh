@@ -3,23 +3,17 @@ import { Link } from 'react-router-dom'
 
 import classNames from 'classnames';
 
-import Typography from 'material-ui/Typography';
-import Paper from 'material-ui/Paper';
-import Icon from 'material-ui/Icon';
-import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import blue from 'material-ui/colors/blue';
 import red from 'material-ui/colors/red';
-import { withStyles, spacing } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemIcon } from 'material-ui/List';
 import HomeIcon from '@material-ui/icons/Home';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import CalendarIcon from '@material-ui/icons/DateRange';
 import ChartIcon from '@material-ui/icons/InsertChart';
 import SearchIcon from '@material-ui/icons/Search';
-import DeleteIcon from '@material-ui/icons/Delete';
 import ChatIcon from '@material-ui/icons/ChatBubbleOutline';
 import ReviewIcon from "@material-ui/icons/RateReview";
 import SettingsIcon from '@material-ui/icons/Settings';

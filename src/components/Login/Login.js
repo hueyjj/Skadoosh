@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import classNames from 'classnames';
+
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
@@ -34,6 +36,47 @@ const styles = theme => ({
 });
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const { fetchLogin } = this.props;
+
+    fetchLogin({
+      // email: this.state.email,
+      // password: this.state.password,
+      email: "proud@ucsc.edu",
+      password: "Password123",
+    }, (error) => {
+      if (error) {
+        // TODO: Implement this
+        throw error;
+      }
+
+      this.props.history.push("/main");
+    });
+
+    this.setState({
+      email: null,
+      password: null
+    });
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -50,7 +93,9 @@ class Login extends Component {
             <Typography variant="headline" component="h3">
               Login
             </Typography>
-            <form>
+            <form
+              onSubmit={this.handleSubmit}
+            >
               <div>
                 <TextField
                   required
@@ -59,19 +104,27 @@ class Login extends Component {
                   placeholder="AdamSmith@ucsc.edu"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.handleEmailChange}
                 />
               </div>
               <div>
                 <TextField
+                  required
                   id="password-input"
                   label="Password"
                   className={classes.textField}
                   type="password"
                   autoComplete="current-password"
                   margin="normal"
+                  onChange={this.handlePasswordChange}
                 />
               </div>
-              <div className={`${classes.centerButton} ${classes.paddingTop}`}>
+              <div
+                className={classNames(
+                  classes.centerButton,
+                  classes.paddingTop,
+                )}
+              >
                 <Button
                   type="submit"
                   variant="raised"
