@@ -1,4 +1,8 @@
 import {
+  API_URL,
+} from "../utils/authUtils";
+
+import {
   FETCHING_LOGIN,
   LOGIN_SUCCESSFUL,
   LOGIN_FAIL,
@@ -26,7 +30,7 @@ export const loginFail = ({
 export const fetchLogin = ({ email, password }, callback) => (dispatch, getState) => {
   dispatch(fetchingLogin);
 
-  let url = "//localhost:8000/api/login";
+  let url = API_URL +  "api/login";
 
   let form = new FormData();
   form.append("email", email);
@@ -79,7 +83,7 @@ export const logoutFail = ({
 export const fetchLogout = (callback) => (dispatch, getState) => {
   dispatch(fetchingLogout);
 
-  let url = "//localhost:8000/api/logout";
+  let url = API_URL + "api/logout";
 
   fetch(url, {
     method: "POST",
@@ -127,7 +131,7 @@ export const signupFail = ({
 export const fetchSignup = ({ email, password, confirmPassword, }, callback) => async (dispatch, getState) => {
   dispatch(fetchingSignup);
 
-  let url = "//localhost:8000/api/signup";
+  let url = API_URL + "api/signup";
 
   let form = new FormData();
   form.append("email", email);
