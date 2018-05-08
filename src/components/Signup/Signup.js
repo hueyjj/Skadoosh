@@ -36,6 +36,51 @@ const styles = theme => ({
 });
 
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value });
+  }
+
+  handleConfirmPasswordChange(e) {
+    this.setState({ confirmPassword: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const { fetchSignup } = this.props;
+
+    fetchSignup({
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword,
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+
+      this.props.history.push("/main");
+    })
+
+    this.setState({
+      email: null,
+      password: null,
+      confirmPassword: null,
+    })
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -49,10 +94,12 @@ class Signup extends Component {
             elevation={4}
             className={classes.paper}
           >
-          <Typography variant="headline" component="h3">
+            <Typography variant="headline" component="h3">
               Create an Account
           </Typography>
-            <form>
+            <form
+              onSubmit={this.handleSubmit}
+            >
               <div>
                 <TextField
                   required
@@ -61,6 +108,7 @@ class Signup extends Component {
                   placeholder="AdamSmith@ucsc.edu"
                   className={classes.textField}
                   margin="normal"
+                  onChange={this.handleEmailChange}
                 />
               </div>
               <div>
@@ -72,6 +120,7 @@ class Signup extends Component {
                   type="password"
                   autoComplete="current-password"
                   margin="normal"
+                  onChange={this.handlePasswordChange}
                 />
               </div>
               <div>
@@ -83,6 +132,7 @@ class Signup extends Component {
                   type="password"
                   autoComplete="current-password"
                   margin="normal"
+                  onChange={this.handleConfirmPasswordChange}
                 />
               </div>
               <div
