@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List, {
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from 'material-ui/List';
 import Icon from 'material-ui/Icon';
 import { withStyles } from 'material-ui/styles';
 
@@ -34,7 +40,11 @@ class Footer extends Component {
         >
           <List className={classes.row}>
             <List className={classes.list}>
-              <ListItem button>
+              <ListItem
+                button
+                component={Link}
+                to="/faq"
+              >
                 <ListItemText primary="FAQ" />
               </ListItem>
               <ListItem button>
