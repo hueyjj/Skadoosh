@@ -64,6 +64,7 @@ export const fetchLogin = ({ email, password }, callback) => (dispatch, getState
       callback(error);
     })
     .catch((error) => {
+      dispatch(loginFail);
       console.log(error)
     });
 };
@@ -112,6 +113,7 @@ export const fetchLogout = (callback) => (dispatch, getState) => {
       callback(error);
     })
     .catch((error) => {
+      dispatch(logoutFail);
       console.log(error);
     })
 };
@@ -166,6 +168,7 @@ export const fetchSignup = ({ email, password, confirmPassword, }, callback) => 
       callback(error);
     })
     .catch((error) => {
+      dispatch(signupFail);
       console.log(error)
     });
 }
