@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Faq from '../components/Faq';
+import Faq from '../../components/Faq';
 
 const FaqContainer = props => <Faq {...props} />;
 

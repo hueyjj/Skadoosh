@@ -13,7 +13,7 @@ import RootContainer from "./containers/RootContainer";
 import HomeContainer from "./containers/HomeContainer";
 import LoginContainer from "./containers/LoginContainer";
 import SignupContainer from "./containers/SignupContainer";
-import FaqContainer from "./containers/FaqContainer";
+import FaqContainer from "./containers/info/FaqContainer";
 
 let store = configureStore();
 
