@@ -47,7 +47,11 @@ class Footer extends Component {
               >
                 <ListItemText primary="FAQ" />
               </ListItem>
-              <ListItem button>
+              <ListItem
+                button
+                component={Link}
+                to="/termsofservice"
+              >
                 <ListItemText primary="Terms of Service" />
               </ListItem>
               <ListItem button>
