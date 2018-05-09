@@ -14,6 +14,7 @@ import HomeContainer from "./containers/HomeContainer";
 import LoginContainer from "./containers/LoginContainer";
 import SignupContainer from "./containers/SignupContainer";
 import FaqContainer from "./containers/info/FaqContainer";
+import PrivacyPolicyContainer from "./containers/info/PrivacyPolicyContainer";
 
 let store = configureStore();
 
@@ -26,6 +27,7 @@ ReactDOM.render(
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/signup" component={SignupContainer} />
           <Route exact path="/faq" component={FaqContainer} />
+          <Route exact path="/privacypolicy" component={PrivacyPolicyContainer} />
         </Switch>
     </Provider>
   </BrowserRouter>
