@@ -36,6 +36,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates a login form page
+ * @class
+ */
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -44,15 +48,27 @@ class Login extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  /**
+   * Track the email everytime it changes
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
 
   handleEmailChange(e) {
     this.setState({ email: e.target.value });
   }
 
+  /**
+   * Track the password everytime it changes
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handlePasswordChange(e) {
     this.setState({ password: e.target.value });
   }
 
+  /**
+   * Submits the login form to the server and redirects the users to main page
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleSubmit(e) {
     e.preventDefault();
 

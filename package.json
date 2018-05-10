@@ -29,6 +29,7 @@
     "@material-ui/icons": "^1.0.0-beta.43",
     "bootstrap": "^4.1.0",
     "classnames": "^2.2.5",
+    "jsdoc": "^3.5.5",
     "material-ui": "^1.0.0-beta.43",
     "moment": "^2.22.1",
     "prop-types": "^15.6.1",
@@ -51,6 +52,7 @@
     "serve": "serve -s build",
     "local-prod": "npm run build&&npm run serve",
     "prod": "npm run serve",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "build:doc": "jsdoc src -r -d docs"
   }
 }

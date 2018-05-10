@@ -30,7 +30,7 @@ const styles = theme => ({
   },
   hide: {
     // display: "none",
-    marginLeft: -drawerWidth,
+    marginLeft: -drawerWidth, // Shift the drawer to the left when hidden
     transition: "all 0.3s ease",
   },
   iconRotate: {
