@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Paper from 'material-ui/Paper';
@@ -85,5 +86,9 @@ class TermsOfService extends Component {
     );
   }
 }
+
+TermsOfService.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(TermsOfService);

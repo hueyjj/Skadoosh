@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Paper from 'material-ui/Paper';
@@ -157,5 +158,13 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleEmailChange: PropTypes.func,
+  handlePasswordChange: PropTypes.func,
+  handleConfirmPasswordChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
 
 export default withStyles(styles)(Signup);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BigCalendar from 'react-big-calendar';
 
+import PropTypes from "prop-types";
+
 import { withStyles } from 'material-ui/styles';
 
 import moment from 'moment';
@@ -43,5 +45,9 @@ class Calendar extends Component {
     );
   }
 }
+
+Calendar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Calendar);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import PropTypes from "prop-types";
+
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -122,5 +124,18 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  drawer: PropTypes.shape({
+    isDrawerOpen: PropTypes.bool.isRequired,
+  }).isRequired,
+  showDrawer: PropTypes.func.isRequired,
+  hideDrawer: PropTypes.func.isRequired,
+  fetchLogout: PropTypes.func.isRequired,
+  handleDrawer: PropTypes.func,
+  handleLogout: PropTypes.func,
+};
 
 export default withStyles(styles)(Header);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Drawer from 'material-ui/Drawer';
@@ -154,4 +155,12 @@ class ClippedDrawer extends Component {
     );
   }
 }
+
+ClippedDrawer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  drawer: PropTypes.shape({
+    isDrawerOpen: PropTypes.bool.isRequired,
+  }).isRequired,
+};
+
 export default withStyles(styles)(ClippedDrawer);

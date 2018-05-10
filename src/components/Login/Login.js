@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Paper from 'material-ui/Paper';
@@ -65,6 +66,7 @@ class Login extends Component {
         throw error;
       }
 
+      // Redirect user to main page
       this.props.history.push("/main");
     });
 
@@ -138,5 +140,12 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleEmailChange: PropTypes.func,
+  handlePasswordChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+};
 
 export default withStyles(styles)(Login);

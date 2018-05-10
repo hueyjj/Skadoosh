@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Paper from 'material-ui/Paper';
@@ -275,5 +276,9 @@ class Faq extends Component {
     );
   }
 }
+
+Faq.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Faq);

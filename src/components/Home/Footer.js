@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import PropTypes from "prop-types";
+
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import List, {
@@ -82,5 +84,9 @@ class Footer extends Component {
     );
   }
 }
+
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Footer);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 
+import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
@@ -124,6 +125,18 @@ class Root extends Component {
       </div>
     );
   }
+}
+
+Root.propTypes = {
+  classes: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  drawer: PropTypes.shape({
+    isDrawerOpen: PropTypes.bool.isRequired,
+  }).isRequired,
+  showDrawer: PropTypes.func.isRequired,
+  hideDrawer: PropTypes.func.isRequired,
+  fetchLogout: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(Root);
