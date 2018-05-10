@@ -30,7 +30,7 @@ export const loginFail = ({
 export const fetchLogin = ({ email, password }, callback) => (dispatch, getState) => {
   dispatch(fetchingLogin);
 
-  let url = API_URL +  "api/login";
+  let url = process.env.REACT_APP_API_URL +  "api/login";
 
   let form = new FormData();
   form.append("email", email);
@@ -84,7 +84,7 @@ export const logoutFail = ({
 export const fetchLogout = (callback) => (dispatch, getState) => {
   dispatch(fetchingLogout);
 
-  let url = API_URL + "api/logout";
+  let url = process.env.REACT_APP_API_URL + "api/logout";
 
   fetch(url, {
     method: "POST",
@@ -133,7 +133,7 @@ export const signupFail = ({
 export const fetchSignup = ({ email, password, confirmPassword, }, callback) => async (dispatch, getState) => {
   dispatch(fetchingSignup);
 
-  let url = API_URL + "api/signup";
+  let url = process.env.REACT_APP_API_URL + "api/signup";
 
   let form = new FormData();
   form.append("email", email);
