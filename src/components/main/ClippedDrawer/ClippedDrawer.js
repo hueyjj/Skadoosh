@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 import classNames from 'classnames';
 
-import Drawer from 'material-ui/Drawer';
-import Divider from 'material-ui/Divider';
-import blue from 'material-ui/colors/blue';
-import red from 'material-ui/colors/red';
-import { withStyles } from 'material-ui/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+import { withStyles } from '@material-ui/core/styles';
 
-import List, { ListItem, ListItemIcon } from 'material-ui/List';
+import List from '@material-ui/core/List';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import HomeIcon from '@material-ui/icons/Home';
 import CalendarIcon from '@material-ui/icons/DateRange';
 import ChartIcon from '@material-ui/icons/InsertChart';

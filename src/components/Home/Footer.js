@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom'
 
 import PropTypes from "prop-types";
 
-import Typography from 'material-ui/Typography';
-import Paper from 'material-ui/Paper';
-import List, {
-  ListItem,
-  ListItemIcon,
-  ListItemText
-} from 'material-ui/List';
-import Icon from 'material-ui/Icon';
-import { withStyles } from 'material-ui/styles';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Icon from '@material-ui/core/Icon';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   root: theme.mixins.gutters({

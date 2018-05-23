@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from 'classnames';
 
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import "../styles/Root.css";
 

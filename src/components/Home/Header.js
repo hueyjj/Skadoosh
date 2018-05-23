@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 import PropTypes from "prop-types";
 
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import blue from 'material-ui/colors/blue';
-import IconButton from 'material-ui/IconButton';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import blue from '@material-ui/core/colors/blue';
+import IconButton from '@material-ui/core/IconButton';
 import Home from '@material-ui/icons/Home';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   root: {
