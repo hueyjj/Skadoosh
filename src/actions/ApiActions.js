@@ -4,6 +4,10 @@ import {
   FETCHING_COURSE_FAIL,
 } from "../constants/ApiActions";
 
+import {
+  setCourseResult,
+} from "./CourseActions";
+
 export const fetchingCourse = ({
   type: FETCHING_COURSE,
 });
@@ -64,11 +68,35 @@ export const fetchCourse = ({
       let error;
       if (response.status === 200) {
         error = null;
-        console.log(response.body.course);
         dispatch(fetchingCourseSuccess);
+
+        let course = response.body.course;
+        let courseResult = {
+          availableSeats: course.available_seats,
+          career: course.career,
+          classNotes: course.class_notes,
+          classNum: course.class_num,
+          credits: course.credits,
+          daysAndTimes: course.days_and_times,
+          description: course.description,
+          enrolled: course.enrolled,
+          enrollmentCapacity: course.enrollment_capacity,
+          generalEducation: course.general_education,
+          grading: course.grading,
+          instructor: course.instructor,
+          meetingDates: course.meeting_dates,
+          room: course.room,
+          sectionAndLabs: course.section_and_labs,
+          status: course.status,
+          title: course.title,
+          type: course.type,
+          waitlistCapacity: course.waitlist_capacity,
+          waitlistTotal: course.waitlist_total,
+        };
+        dispatch(setCourseResult(courseResult));
       } else {
         error = Error("Failed to retrieve course - "
-          + response.status + " status code. Server message: " 
+          + response.status + " status code. Server message: "
           + response.body.message + " Error: " + response.body.error);
         dispatch(fetchingCourseFail);
       }

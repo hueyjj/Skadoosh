@@ -31,13 +31,10 @@ const termTest = [
 const statusTest = termTest;
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexGrow: 1,
-  },
   container: {
     display: "flex",
     flexWrap: "wrap",
+    width: 500,
   },
   column: {
     flexDirection: "column",
@@ -47,14 +44,6 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: "100%",
   },
-  paper: {
-    display: "inline-block",
-    margin: "auto",
-    marginTop: theme.spacing.unit * 5,
-    padding: theme.spacing.unit * 8,
-    minWidth: 500,
-    minHeight: 500,
-  }
 });
 
 class SearchForm extends Component {

@@ -1,28 +1,37 @@
-import * as types from "../constants/ApiActions";
+import * as types from "../constants/CourseActions";
 
 const initialState = {
-  isFetchingCourse: false,
+  courseResult: {
+    availableSeats: "",
+    career: "",
+    classNotes: "",
+    classNum: "",
+    credits: "",
+    daysAndTimes: "",
+    description: "",
+    enrolled: "",
+    enrollmentCapacity: "",
+    generalEducation: "",
+    grading: "",
+    instructor: "",
+    meetingDates: "",
+    room: "",
+    sectionAndLabs: [],
+    status: "",
+    title: "",
+    type: "",
+    waitlistCapacity: "",
+    waitlistTotal: "",
+  },
 };
 
 const api = (state = initialState, action) => {
   switch (action.type) {
-    case (types.FETCHING_COURSE): {
+    case (types.SET_COURSE_RESULT): {
       return {
         ...state,
-        isFetchingCourse: true,
+        courseResult: action.payload,
       };
-    }
-    case (types.FETCHING_COURSE_SUCCESS): {
-      return {
-        ...state,
-        isFetchingCourse: false,
-      }
-    }
-    case (types.FETCHING_COURSE_FAIL): {
-      return {
-        ...state,
-        isFetchingCourse: false,
-      }
     }
     default:
       return state;

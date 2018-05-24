@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from '@material-ui/core/styles';
 
 import SearchForm from "./SearchForm";
+import SearchResult from './SearchResult';
 
 const termTest = [
   {
@@ -77,7 +78,7 @@ class Search extends Component {
   // }
 
   render() {
-    const { classes } = this.props;
+    const { classes, course } = this.props;
     const { fetchCourse } = this.props;
 
     return (
@@ -100,6 +101,9 @@ class Search extends Component {
           elevation={4}
           className={classes.paper}
         >
+          <SearchResult
+            course={course}
+          />
         </Paper>
       </div>
     );

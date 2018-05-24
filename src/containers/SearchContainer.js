@@ -8,9 +8,10 @@ import { fetchCourse } from "../actions/ApiActions";
 const SearchContainer = props => <Search {...props} />;
 
 const mapStateToProps = (state) => {
-//   const { } = state;
+  const { course } = state;
 
   return {
+    course,
   }
 };
 
