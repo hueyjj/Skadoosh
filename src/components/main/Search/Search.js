@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from '@material-ui/core/styles';
 
+import SearchForm from "./SearchForm";
+
 const termTest = [
   {
     value: "2017Fall",
@@ -33,13 +35,17 @@ const styles = theme => ({
     display: 'flex',
     flexGrow: 1,
   },
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
   column: {
     flexDirection: "column",
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: "100%",
   },
   paper: {
     display: "inline-block",
@@ -72,6 +78,7 @@ class Search extends Component {
 
   render() {
     const { classes } = this.props;
+    const { fetchCourse } = this.props;
 
     return (
       <div
@@ -85,63 +92,9 @@ class Search extends Component {
           elevation={4}
           className={classes.paper}
         >
-          <form
-            onSubmit={this.handleSubmit}
-          >
-            <div>
-              <TextField
-                id="select-term"
-                select
-                label="Term"
-                className={classes.textField}
-                margin="normal"
-                onChange={this.handleTermChange}
-              >
-                {termTest.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-            <div>
-              <TextField
-                id="password-input"
-                label="Password"
-                className={classes.textField}
-                type="password"
-                autoComplete="current-password"
-                margin="normal"
-                onChange={this.handlePasswordChange}
-              />
-            </div>
-            <div>
-              <TextField
-                id="confirm-password-input"
-                label="Confirm Password"
-                className={classes.textField}
-                type="password"
-                autoComplete="current-password"
-                margin="normal"
-                onChange={this.handleConfirmPasswordChange}
-              />
-            </div>
-            <div
-              className={classNames(
-                classes.centerButton,
-                classes.paddingTop
-              )}
-            >
-              <Button
-                type="submit"
-                variant="raised"
-                color="primary"
-                className={classes.button}
-              >
-                Search
-              </Button>
-            </div>
-          </form>
+          <SearchForm
+            fetchCourse={fetchCourse}
+          />
         </Paper>
         <Paper
           elevation={4}

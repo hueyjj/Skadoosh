@@ -23,7 +23,7 @@ const styles = theme => ({
   main: {
     flexGrow: 1,
     zIndex: 1,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     position: 'relative',
     display: 'flex',
   },
