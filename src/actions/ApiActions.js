@@ -16,14 +16,37 @@ export const fetchingCourseFail = ({
   type: FETCHING_COURSE_FAIL,
 });
 
-export const fetchCourse = ({ course }, callback) => (dispatch, getState) => {
+export const fetchCourse = ({
+  term,
+  status,
+  subject,
+  courseNumber,
+  courseTitleKeyword,
+  instructorLastName,
+  generalEducation,
+  courseUnits,
+  meetingDays,
+  meetingTimes,
+  courseCareer,
+}, callback) => (dispatch, getState) => {
   dispatch(fetchingCourse);
 
   let url = process.env.REACT_APP_API_URL + "api/course";
 
   let form = new FormData();
+  form.append("term", term);
+  form.append("status", status);
+  form.append("subject", subject);
+  form.append("course_num", Number(courseNumber));
+  form.append("course_title_key_word", courseTitleKeyword);
+  form.append("instructor_last_name", instructorLastName);
+  form.append("general_education", generalEducation);
+  form.append("course_units", courseUnits);
+  form.append("meeting_days", meetingDays);
+  form.append("course_career", courseCareer);
+
   fetch(url, {
-    method: "GET",
+    method: "POST",
     mode: "cors",
     credentials: "include",
     headers: {
@@ -41,9 +64,12 @@ export const fetchCourse = ({ course }, callback) => (dispatch, getState) => {
       let error;
       if (response.status === 200) {
         error = null;
+        console.log(response.body.course);
         dispatch(fetchingCourseSuccess);
       } else {
-        error = Error("Failed to retrieve course - " + response.status + " status code. Server message: " + response.body.message);
+        error = Error("Failed to retrieve course - "
+          + response.status + " status code. Server message: " 
+          + response.body.message + " Error: " + response.body.error);
         dispatch(fetchingCourseFail);
       }
 

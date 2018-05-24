@@ -93,13 +93,13 @@ class Signup extends Component {
       }
 
       this.props.history.push("/main");
-    })
+    });
 
     this.setState({
       email: null,
       password: null,
       confirmPassword: null,
-    })
+    });
   }
 
   render() {

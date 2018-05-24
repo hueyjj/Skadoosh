@@ -76,6 +76,7 @@ class SearchForm extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -89,6 +90,24 @@ class SearchForm extends Component {
     e.preventDefault();
 
     const { fetchCourse } = this.props;
+
+    fetchCourse({
+      term: this.state.term,
+      status: this.state.status,
+      subject: this.state.subject,
+      courseNumber: this.state.courseNumber,
+      courseTitleKeyword: this.state.courseTitleKeyword,
+      instructorLastName: this.state.instructorLastName,
+      generalEducation: this.state.generalEducation,
+      courseUnits: this.state.courseUnits,
+      meetingDays: this.state.meetingDays,
+      meetingTimes: this.state.meetingTimes,
+      courseCareer: this.state.courseCareer,
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+    });
 
     // Persist form data after submit
   }
@@ -160,6 +179,7 @@ class SearchForm extends Component {
           <TextField
             id="select-course-number"
             label="Course Number"
+            type="number"
             className={classes.textField}
             margin="normal"
             onChange={this.handleChange("courseNumber")}
