@@ -43,6 +43,7 @@ heroku local web
 Check the build log on Heroku's server.
 ```sh
 heroku logs
+herou logs --tail # Get real-time update of logs
 ```
 
 # Git
