@@ -92,7 +92,7 @@ class Signup extends Component {
         throw error;
       }
 
-      this.props.history.push("/main");
+      this.props.history.push("/login");
     });
 
     this.setState({
