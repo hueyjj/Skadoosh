@@ -25,7 +25,7 @@ const initialState = {
   },
 };
 
-const api = (state = initialState, action) => {
+const course = (state = initialState, action) => {
   switch (action.type) {
     case (types.SET_COURSE_RESULT): {
       return {
@@ -38,4 +38,4 @@ const api = (state = initialState, action) => {
   }
 }
 
-export default api;
+export default course;

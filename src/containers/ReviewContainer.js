@@ -6,9 +6,10 @@ import Review from '../components/main/Review';
 const ReviewContainer = props => <Review {...props} />;
 
 const mapStateToProps = (state) => {
-//   const { } = state;
+  const { review } = state;
 
   return {
+    review,
   }
 };
 

@@ -1,0 +1,1 @@
+export const SET_REVIEW_RESULT = "SET_REVIEW_RESULT";

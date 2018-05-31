@@ -9,26 +9,15 @@ import Button from '@material-ui/core/Button';
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from '@material-ui/core/styles';
 
-const termTest = [
-  {
-    value: "2017Fall",
-    label: "2017 Fall"
-  },
-  {
-    value: "2018Winter",
-    label: "2018 Winter"
-  },
-  {
-    value: "2018Spring",
-    label: "2018 Spring"
-  },
-  {
-    value: "2018Fall",
-    label: "2018 Fall"
-  },
-];
-
-const statusTest = termTest;
+import { 
+  termOpts,
+  statusOpts,
+  subjectOpts,
+  geOpts,
+  meetingDaysOpts,
+  meetingTimesDaysOpts,
+  courseCareerOpts,
+} from "../../../utils/searchOptions";
 
 const styles = theme => ({
   container: {
@@ -120,7 +109,7 @@ class SearchForm extends Component {
             value={this.state.term}
             onChange={this.handleChange("term")}
           >
-            {termTest.map(option => (
+            {termOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -138,7 +127,7 @@ class SearchForm extends Component {
             value={this.state.status}
             onChange={this.handleChange("status")}
           >
-            {statusTest.map(option => (
+            {statusOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -156,7 +145,7 @@ class SearchForm extends Component {
             value={this.state.subject}
             onChange={this.handleChange("subject")}
           >
-            {statusTest.map(option => (
+            {subjectOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -196,7 +185,7 @@ class SearchForm extends Component {
             value={this.state.generalEducation}
             onChange={this.handleChange("generalEducation")}
           >
-            {statusTest.map(option => (
+            {geOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -221,7 +210,7 @@ class SearchForm extends Component {
             value={this.state.meetingDays}
             onChange={this.handleChange("meetingDays")}
           >
-            {statusTest.map(option => (
+            {meetingDaysOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -239,7 +228,7 @@ class SearchForm extends Component {
             value={this.state.meetingTimes}
             onChange={this.handleChange("meetingTimes")}
           >
-            {statusTest.map(option => (
+            {meetingTimesDaysOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
@@ -257,7 +246,7 @@ class SearchForm extends Component {
             value={this.state.courseCareer}
             onChange={this.handleChange("courseCareer")}
           >
-            {statusTest.map(option => (
+            {courseCareerOpts.map(option => (
               <MenuItem
                 key={option.value}
                 value={option.value}
