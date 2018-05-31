@@ -5,8 +5,13 @@ import {
 } from "../constants/ApiActions";
 
 import {
-  setCourseResult,
-} from "./CourseActions";
+  SET_COURSE_RESULT,
+} from "../constants/CourseActions";
+
+export const setCourseResult = (result) => ({
+  type: SET_COURSE_RESULT,
+  payload: result,
+});
 
 export const fetchingCourse = ({
   type: FETCHING_COURSE,
