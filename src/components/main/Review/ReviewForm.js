@@ -16,9 +16,6 @@ const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
   },
-  fullWidth: {
-    width: "100%",
-  },
   cssLabel: {
     '&$cssFocused': {
       color: red[500],
@@ -53,6 +50,16 @@ class ReviewForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    const { fetchReviews } = this.props;
+
+    fetchReviews(this.state.searchTerm, (error) => {
+      if (error) {
+        throw error;
+      }
+    })
+
+    // Persist form data after submit
   }
 
   render() {
@@ -67,8 +74,9 @@ class ReviewForm extends Component {
         >
           <FormControl className={classNames(
             classes.margin,
-            classes.fullWidth,
-          )}>
+          )}
+            fullWidth
+          >
             <InputLabel
               FormLabelClasses={{
                 root: classes.cssLabel,

@@ -40,9 +40,84 @@ class ReviewResult extends Component {
   constructor(props) {
     super(props);
 
+    this.createReviewList = this.createReviewList.bind(this);
   }
 
   componentDidMount() {
+  }
+
+  createReviewList() {
+    const {
+      review,
+      classes,
+    } = this.props;
+    const {
+      reviewResults,
+    } = review;
+
+    return reviewResults.map((result, index) => (
+      <div
+        className={classes.container}
+        key={`${result.courseTitle}-${index}`}
+      >
+        <Typography
+          variant="headline"
+          component="h6"
+        >
+          {result.courseTitle}
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography
+            variant="headline"
+            component="h6"
+          >
+            Course Title
+            <Typography component="p">
+              {result.courseTitle}
+            </Typography>
+          </Typography>
+          <Typography
+            variant="headline"
+            component="h6"
+          >
+            Author
+          </Typography>
+          <Typography component="p">
+            {result.author}
+          </Typography>
+          <Typography
+            variant="headline"
+            component="h6"
+          >
+            Date Created 
+          </Typography>
+          <Typography component="p">
+            {result.created}
+          </Typography>
+          <Typography
+            variant="headline"
+            component="h6"
+          >
+            Date Modified
+          </Typography>
+          <Typography component="p">
+            {result.modified}
+          </Typography>
+          <Typography
+            variant="headline"
+            component="h6"
+          >
+            Comment
+          </Typography>
+          <Typography component="p">
+            {result.comment}
+          </Typography>
+        </Paper>
+      </div>
+    ));
   }
 
   render() {
@@ -55,22 +130,8 @@ class ReviewResult extends Component {
     } = review;
 
     const result = reviewResults.length === 0 ? null : (
-      <div
-        className={classes.container}
-      >
-        <Typography
-          variant="headline"
-          component="h4"
-        >
-          Results
-        </Typography>
-        <Paper
-          elevation={4}
-          className={classes.paper}
-        >
-          <Typography component="p">
-          </Typography>
-        </Paper>
+      <div>
+        {this.createReviewList()}
       </div>
     );
 
