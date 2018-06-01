@@ -44,6 +44,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "serve": "^6.5.5",
+    "storm-react-diagrams": "^5.2.1",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
