@@ -54,8 +54,12 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 5,
     padding: theme.spacing.unit * 8,
     minWidth: 500,
-    minHeight: 500,
-  }
+    minHeight: 900,
+    maxHeight: 900,
+  },
+  scroll: {
+    overflow: "scroll",
+  },
 });
 
 class Search extends Component {
@@ -99,7 +103,10 @@ class Search extends Component {
         </Paper>
         <Paper
           elevation={4}
-          className={classes.paper}
+          className={classNames(
+            classes.paper,
+            classes.scroll,
+          )}
         >
           <SearchResult
             course={course}

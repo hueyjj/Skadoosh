@@ -1,28 +1,30 @@
 import * as types from "../constants/CourseActions";
 
 const initialState = {
-  courseResult: {
-    availableSeats: "",
-    career: "",
-    classNotes: "",
-    classNum: "",
-    credits: "",
-    daysAndTimes: "",
-    description: "",
-    enrolled: "",
-    enrollmentCapacity: "",
-    generalEducation: "",
-    grading: "",
-    instructor: "",
-    meetingDates: "",
-    room: "",
-    sectionAndLabs: [],
-    status: "",
-    title: "",
-    type: "",
-    waitlistCapacity: "",
-    waitlistTotal: "",
-  },
+  courseResults: [
+    // {
+    //   availableSeats: "",
+    //   career: "",
+    //   classNotes: "",
+    //   classNum: "",
+    //   credits: "",
+    //   daysAndTimes: "",
+    //   description: "",
+    //   enrolled: "",
+    //   enrollmentCapacity: "",
+    //   generalEducation: "",
+    //   grading: "",
+    //   instructor: "",
+    //   meetingDates: "",
+    //   room: "",
+    //   sectionAndLabs: [],
+    //   status: "",
+    //   title: "",
+    //   type: "",
+    //   waitlistCapacity: "",
+    //   waitlistTotal: "",
+    // },
+  ],
 };
 
 const course = (state = initialState, action) => {
@@ -30,7 +32,7 @@ const course = (state = initialState, action) => {
     case (types.SET_COURSE_RESULT): {
       return {
         ...state,
-        courseResult: action.payload,
+        courseResults: action.payload,
       };
     }
     default:

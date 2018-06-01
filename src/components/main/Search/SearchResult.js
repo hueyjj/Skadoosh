@@ -33,23 +33,32 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 1,
     padding: theme.spacing.unit * 2,
     minWidth: 350,
-  }
+  },
+  scroll: {
+    overflow: "scroll",
+  },
 });
 
 class SearchResult extends Component {
   constructor(props) {
     super(props);
 
+    this.createResultList = this.createResultList.bind(this);
   }
 
   componentDidMount() {
   }
 
-  render() {
-    const { classes, course } = this.props;
-    const { courseResult } = course;
+  createResultList() {
+    const {
+      classes,
+      course,
+    } = this.props;
+    const {
+      courseResults,
+    } = course;
 
-    const searchResult = courseResult.title === "" ? null : (
+    return courseResults.map((result, index) => (
       <div
         className={classes.container}
       >
@@ -64,7 +73,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.title}
+            {result.title}
           </Typography>
         </Paper>
         <Typography
@@ -78,7 +87,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.instructor}
+            {result.instructor}
           </Typography>
         </Paper>
         <Typography
@@ -92,7 +101,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.description}
+            {result.description}
           </Typography>
         </Paper>
         <Typography
@@ -106,7 +115,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.status}
+            {result.status}
           </Typography>
         </Paper>
         <Typography
@@ -120,7 +129,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.room}
+            {result.room}
           </Typography>
         </Paper>
         <Typography
@@ -134,7 +143,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.enrolled}
+            {result.enrolled}
           </Typography>
         </Paper>
         <Typography
@@ -148,7 +157,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.classNotes}
+            {result.classNotes}
           </Typography>
         </Paper>
         <Typography
@@ -162,7 +171,7 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.meetingDates}
+            {result.meetingDates}
           </Typography>
         </Paper>
         <Typography
@@ -176,21 +185,21 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.enrolled + "/" + courseResult.enrollmentCapacity}
+            {result.enrolled + "/" + result.enrollmentCapacity}
           </Typography>
         </Paper>
         <Typography
           variant="headline"
           component="h4"
         >
-          Course number 
+          Course number
         </Typography>
         <Paper
           elevation={4}
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.classNum}
+            {result.classNum}
           </Typography>
         </Paper>
         <Typography
@@ -204,9 +213,20 @@ class SearchResult extends Component {
           className={classes.paper}
         >
           <Typography component="p">
-            {courseResult.credits}
+            {result.credits}
           </Typography>
         </Paper>
+      </div>
+    ));
+  }
+
+  render() {
+    const { classes, course } = this.props;
+    const { courseResults } = course;
+
+    const searchResult = courseResults.length === 0 ? null : (
+      <div>
+        {this.createResultList()}
       </div>
     );
 

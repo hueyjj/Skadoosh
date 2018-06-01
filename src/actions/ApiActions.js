@@ -89,30 +89,35 @@ export const fetchCourse = ({
         error = null;
         dispatch(fetchingCourseSuccess);
 
-        let course = response.body.course;
-        let courseResult = {
-          availableSeats: course.available_seats,
-          career: course.career,
-          classNotes: course.class_notes,
-          classNum: course.class_num,
-          credits: course.credits,
-          daysAndTimes: course.days_and_times,
-          description: course.description,
-          enrolled: course.enrolled,
-          enrollmentCapacity: course.enrollment_capacity,
-          generalEducation: course.general_education,
-          grading: course.grading,
-          instructor: course.instructor,
-          meetingDates: course.meeting_dates,
-          room: course.room,
-          sectionAndLabs: course.section_and_labs,
-          status: course.status,
-          title: course.title,
-          type: course.type,
-          waitlistCapacity: course.waitlist_capacity,
-          waitlistTotal: course.waitlist_total,
-        };
-        dispatch(setCourseResult(courseResult));
+        let courseResults = []
+        let courses = response.body.courses;
+        for (let course of courses) {
+          let courseResult = {
+            availableSeats: course.available_seats,
+            career: course.career,
+            classNotes: course.class_notes,
+            classNum: course.class_num,
+            credits: course.credits,
+            daysAndTimes: course.days_and_times,
+            description: course.description,
+            enrolled: course.enrolled,
+            enrollmentCapacity: course.enrollment_capacity,
+            generalEducation: course.general_education,
+            grading: course.grading,
+            instructor: course.instructor,
+            meetingDates: course.meeting_dates,
+            room: course.room,
+            sectionAndLabs: course.section_and_labs,
+            status: course.status,
+            title: course.title,
+            type: course.type,
+            waitlistCapacity: course.waitlist_capacity,
+            waitlistTotal: course.waitlist_total,
+          };
+          courseResults.push(courseResult)
+        }
+
+        dispatch(setCourseResult(courseResults));
       } else {
         error = Error("Failed to retrieve course - "
           + response.status + " status code. Server message: "
@@ -175,7 +180,7 @@ export const fetchReviews = (searchTerm, callback) => (dispatch, getState) => {
         dispatch(fetchingReviewsSuccess);
 
         let reviews = response.body.reviews;
-        
+
         let reviewsResult = [];
         let parseResult = JSON.parse(reviews);
         for (let result of parseResult) {
@@ -217,10 +222,10 @@ export const fetchingCreateReviewFail = ({
 });
 
 export const fetchCreateReview = ({
-  subject, 
-  term, 
-  courseTitle, 
-  rating, 
+  subject,
+  term,
+  courseTitle,
+  rating,
   comment,
 }, callback) => (dispatch, getState) => {
   dispatch(fetchingCreateReview);
