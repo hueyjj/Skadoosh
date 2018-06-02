@@ -61,6 +61,7 @@ class SearchResult extends Component {
     return courseResults.map((result, index) => (
       <div
         className={classes.container}
+        key={`${result.title}-${index}`}
       >
         <Typography
           variant="headline"

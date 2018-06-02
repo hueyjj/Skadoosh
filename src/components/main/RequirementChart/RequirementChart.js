@@ -95,11 +95,17 @@ class RequirementChart extends Component {
   }
 
   createSearchDialog() {
-    if (!this.state.searchDialogOpen) {
-      return null;
-    }
+    const {
+      diagram,
+      course,
+      fetchCourse
+    } = this.props;
+
     return (
       <SearchDialog
+        diagram={diagram}
+        course={course}
+        fetchCourse={fetchCourse}
         isOpen={this.state.searchDialogOpen}
         handleClose={this.handleCloseDialog}
       />
@@ -133,9 +139,10 @@ class RequirementChart extends Component {
           variant="raised"
           onClick={this.handleOpenSelectedCourse}
         >
-          View selected course
+          View last selected course
         </Button>
-        {this.createSearchDialog()}
+
+        {this.state.searchDialogOpen ? this.createSearchDialog() : null}
 
         {!this.state.engine ? null : (
           <DiagramWidget

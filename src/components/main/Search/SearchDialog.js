@@ -55,17 +55,213 @@ class SearchDialog extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.createResultList = this.createResultList.bind(this);
+  }
+
+  componentWillMount() {
+    const {
+      diagram,
+      fetchCourse,
+    } = this.props;
+
+    fetchCourse({
+      term: "",
+      status: "",
+      subject: "",
+      courseNumber: "",
+      courseTitleKeyword: diagram.selectedCmpsCourse,
+      instructorLastName: "",
+      generalEducation: "",
+      courseUnits: "",
+      meetingDays: "",
+      meetingTimes: "",
+      courseCareer: "",
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+    });
   }
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   }
 
-  componentDidMount() {
+  createResultList() {
+    const {
+      classes,
+      course,
+    } = this.props;
+    const {
+      courseResults,
+    } = course;
+
+    return courseResults.map((result, index) => (
+      <div
+        className={classes.container}
+        key={`${result.title}-${index}`}
+      >
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Course title
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.title}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Instructor
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.instructor}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Description
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.description}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Status
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.status}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Room
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.room}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Enrolled
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.enrolled}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Class notes
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.classNotes}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Meeting dates
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.meetingDates}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Enrollment
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.enrolled + "/" + result.enrollmentCapacity}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Course number
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.classNum}
+          </Typography>
+        </Paper>
+        <Typography
+          variant="headline"
+          component="h4"
+        >
+          Credits
+        </Typography>
+        <Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          <Typography component="p">
+            {result.credits}
+          </Typography>
+        </Paper>
+      </div>
+    ));
   }
 
   render() {
     const {
+      course,
       classes,
       isOpen,
       handleClose,
@@ -80,14 +276,10 @@ class SearchDialog extends Component {
         <DialogTitle
           id="form-dialog-title"
         >
-          New Review
+          Class Search
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Please specify the subject, course title, and term. Then add your comment.
-
-            Example: CMPS, Software Engineering, and Spring 2018.
-          </DialogContentText>
+          {this.createResultList()}
         </DialogContent>
         <DialogActions>
           <Button
