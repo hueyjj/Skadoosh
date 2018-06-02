@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import "storm-react-diagrams/dist/style.min.css";
 
 import {
-  newStormEngine,
-} from "../utils/stormModels";
-
-import {
   setSelectedCmpsCourse,
 } from "../actions/DiagramActions";
 
@@ -20,10 +16,7 @@ const mapStateToProps = (state) => {
     diagram,
   } = state;
 
-  let engine = newStormEngine();
-
   return {
-    engine,
     diagram,
   }
 };

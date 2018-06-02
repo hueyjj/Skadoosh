@@ -40,18 +40,24 @@ class RequirementChart extends Component {
   constructor(props) {
     super(props);
 
-    this.initEngine = this.initEngine.bind(this);
+    this.state = {
+      engine: null,
+    };
+
+    this.newEngine = this.newEngine.bind(this);
   }
 
   componentDidMount() {
-    this.initEngine();
+    this.setState({
+      engine: this.newEngine(),
+    });
   }
 
-  initEngine() {
+  newEngine() {
     const {
       setSelectedCmpsCourse,
     } = this.props;
-    console.log(this.props);
+
 
     let cmpsModel = newCMPSModel();
     let cmpsModels = cmpsModel.getNodes();
@@ -59,6 +65,7 @@ class RequirementChart extends Component {
       let node = cmpsModels[key];
       node.addListener({
         selectionChanged: (e) => {
+          console.log(e);
           // Toggle colors. This works for some reason.
           if (node.isSelected()) {
             if (node.color == "grey") {
@@ -67,18 +74,20 @@ class RequirementChart extends Component {
               node.color = "grey";
             }
             //let course = node.name;
+            setSelectedCmpsCourse("Hi");
           }
         },
       })
     });
 
-    addStormDiagramModel(this.props.engine, cmpsModel);
+    let engine = newStormEngine();
+    engine = addStormDiagramModel(engine, cmpsModel);
+    return engine;
   }
 
   render() {
     const {
       classes,
-      engine,
     } = this.props;
 
     return (
@@ -90,17 +99,21 @@ class RequirementChart extends Component {
         <Button
           className={classes.margin}
           variant="raised"
-          onClick={() => engine.zoomToFit()}
+          onClick={() => this.state.engine.zoomToFit()}
         >
           Zoom to fit
         </Button>
-        <DiagramWidget
-          className={classNames(
-            classes.canvas,
-          )}
-          diagramEngine={engine}
-          inverseZoom
-        />
+        {
+          !this.state.engine ? null : (
+            <DiagramWidget
+              className={classNames(
+                classes.canvas,
+              )}
+              diagramEngine={this.state.engine}
+              inverseZoom
+            />
+          )
+        }
       </div>
     );
   }
