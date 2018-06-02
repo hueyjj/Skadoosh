@@ -1,0 +1,7 @@
+.srd-default-node {
+  max-width: 200px;
+}
+
+.srd-default-node__title {
+  white-space: pre-wrap;
+}
