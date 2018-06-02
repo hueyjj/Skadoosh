@@ -20,6 +20,8 @@ import {
   DiagramWidget,
 } from "storm-react-diagrams"
 
+import SearchDialog from "../Search/SearchDialog";
+
 const styles = theme => ({
   canvas: {
     height: "100%",
@@ -33,6 +35,7 @@ const styles = theme => ({
   },
   margin: {
     marginBottom: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2,
   },
 });
 
@@ -42,9 +45,13 @@ class RequirementChart extends Component {
 
     this.state = {
       engine: null,
+      searchDialogOpen: false,
     };
 
     this.newEngine = this.newEngine.bind(this);
+    this.handleOpenSelectedCourse = this.handleOpenSelectedCourse.bind(this);
+    this.createSearchDialog = this.createSearchDialog.bind(this);
+    this.handleCloseDialog = this.handleCloseDialog.bind(this);
   }
 
   componentDidMount() {
@@ -58,14 +65,12 @@ class RequirementChart extends Component {
       setSelectedCmpsCourse,
     } = this.props;
 
-
     let cmpsModel = newCMPSModel();
     let cmpsModels = cmpsModel.getNodes();
     Object.keys(cmpsModels).forEach((key) => {
       let node = cmpsModels[key];
       node.addListener({
         selectionChanged: (e) => {
-          console.log(e);
           // Toggle colors. This works for some reason.
           if (node.isSelected()) {
             if (node.color == "grey") {
@@ -73,8 +78,7 @@ class RequirementChart extends Component {
             } else {
               node.color = "grey";
             }
-            //let course = node.name;
-            setSelectedCmpsCourse("Hi");
+            setSelectedCmpsCourse(node.name);
           }
         },
       })
@@ -83,6 +87,27 @@ class RequirementChart extends Component {
     let engine = newStormEngine();
     engine = addStormDiagramModel(engine, cmpsModel);
     return engine;
+  }
+
+  handleOpenSelectedCourse(e) {
+    // Toggle state
+    this.setState({ searchDialogOpen: !this.state.searchDialogOpen });
+  }
+
+  createSearchDialog() {
+    if (!this.state.searchDialogOpen) {
+      return null;
+    }
+    return (
+      <SearchDialog
+        isOpen={this.state.searchDialogOpen}
+        handleClose={this.handleCloseDialog}
+      />
+    );
+  }
+
+  handleCloseDialog() {
+    this.setState({ searchDialogOpen: false });
   }
 
   render() {
@@ -103,17 +128,24 @@ class RequirementChart extends Component {
         >
           Zoom to fit
         </Button>
-        {
-          !this.state.engine ? null : (
-            <DiagramWidget
-              className={classNames(
-                classes.canvas,
-              )}
-              diagramEngine={this.state.engine}
-              inverseZoom
-            />
-          )
-        }
+        <Button
+          className={classes.margin}
+          variant="raised"
+          onClick={this.handleOpenSelectedCourse}
+        >
+          View selected course
+        </Button>
+        {this.createSearchDialog()}
+
+        {!this.state.engine ? null : (
+          <DiagramWidget
+            className={classNames(
+              classes.canvas,
+            )}
+            diagramEngine={this.state.engine}
+            inverseZoom
+          />
+        )}
       </div>
     );
   }

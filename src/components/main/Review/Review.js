@@ -39,6 +39,7 @@ class Review extends Component {
       comment: "",
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleOpenForm = this.handleOpenForm.bind(this);
     this.handleCloseForm = this.handleCloseForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
