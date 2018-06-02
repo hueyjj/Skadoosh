@@ -8,6 +8,12 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
+import {
+  newStormEngine,
+  addStormDiagramModel,
+  newCMPSModel,
+} from "../../../utils/stormModels";
+
 import "../../../styles/StormDiagram.css";
 
 import {
@@ -25,11 +31,48 @@ const styles = theme => ({
   container: {
     height: "100%",
   },
+  margin: {
+    marginBottom: theme.spacing.unit * 2,
+  },
 });
 
 class RequirementChart extends Component {
   constructor(props) {
     super(props);
+
+    this.initEngine = this.initEngine.bind(this);
+  }
+
+  componentDidMount() {
+    this.initEngine();
+  }
+
+  initEngine() {
+    const {
+      setSelectedCmpsCourse,
+    } = this.props;
+    console.log(this.props);
+
+    let cmpsModel = newCMPSModel();
+    let cmpsModels = cmpsModel.getNodes();
+    Object.keys(cmpsModels).forEach((key) => {
+      let node = cmpsModels[key];
+      node.addListener({
+        selectionChanged: (e) => {
+          // Toggle colors. This works for some reason.
+          if (node.isSelected()) {
+            if (node.color == "grey") {
+              node.color = "green";
+            } else {
+              node.color = "grey";
+            }
+            //let course = node.name;
+          }
+        },
+      })
+    });
+
+    addStormDiagramModel(this.props.engine, cmpsModel);
   }
 
   render() {
@@ -45,6 +88,8 @@ class RequirementChart extends Component {
         )}
       >
         <Button
+          className={classes.margin}
+          variant="raised"
           onClick={() => engine.zoomToFit()}
         >
           Zoom to fit

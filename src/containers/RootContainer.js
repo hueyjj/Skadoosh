@@ -15,6 +15,7 @@ const RootContainer = props => <Root {...props} />;
 
 const mapStateToProps = (state) => {
   const { drawer } = state;
+
   return {
     drawer,
   }

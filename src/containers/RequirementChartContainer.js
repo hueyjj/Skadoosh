@@ -3,26 +3,33 @@ import { connect } from 'react-redux';
 
 import "storm-react-diagrams/dist/style.min.css";
 
-import RequirementChart from '../components/main/RequirementChart';
 import {
   newStormEngine,
-  addStormDiagramModel,
-  newCMPSModel,
 } from "../utils/stormModels";
+
+import {
+  setSelectedCmpsCourse,
+} from "../actions/DiagramActions";
+
+import RequirementChart from '../components/main/RequirementChart';
 
 const RequirementChartContainer = props => <RequirementChart {...props} />;
 
 const mapStateToProps = (state) => {
-  //   const { } = state;
+  const { 
+    diagram,
+  } = state;
+
   let engine = newStormEngine();
-  addStormDiagramModel(engine, newCMPSModel());
 
   return {
-    engine: engine,
+    engine,
+    diagram,
   }
 };
 
 const mapDispatchToProps = {
+  setSelectedCmpsCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequirementChartContainer);
