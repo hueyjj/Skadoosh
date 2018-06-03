@@ -6,6 +6,7 @@ import api from "../reducers/api";
 import course from "../reducers/course";
 import review from "../reducers/review";
 import diagram from "../reducers/diagram";
+import settings from "../reducers/settings";
 
 const rootReducer = combineReducers({
   drawer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   course,
   review,
   diagram,
+  settings,
 });
 
 export default rootReducer;

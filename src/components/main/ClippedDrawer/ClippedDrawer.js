@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
+import Tooltip from '@material-ui/core/Tooltip';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import { withStyles } from '@material-ui/core/styles';
@@ -69,88 +70,104 @@ class ClippedDrawer extends Component {
         <div className={classes.toolbar} />
         <List>
           <div>
-            <ListItem
-              button
-              component={Link}
-              to="/main"
-            >
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/calendar"
-            >
-              <ListItemIcon>
-                <CalendarIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/requirement"
-            >
-              <ListItemIcon>
-                <ChartIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/chat"
-            >
-              <ListItemIcon>
-                <ChatIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/review"
-            >
-              <ListItemIcon>
-                <ReviewIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/search"
-            >
-              <ListItemIcon>
-                <SearchIcon />
-              </ListItemIcon>
-            </ListItem>
+            <Tooltip id="tooltip-top" title="Home" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main"
+              >
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Calendar" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/calendar"
+              >
+                <ListItemIcon>
+                  <CalendarIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Chart" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/requirement"
+              >
+                <ListItemIcon>
+                  <ChartIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Chat" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/chat"
+              >
+                <ListItemIcon>
+                  <ChatIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Review" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/review"
+              >
+                <ListItemIcon>
+                  <ReviewIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Search" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/search"
+              >
+                <ListItemIcon>
+                  <SearchIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
           </div>
         </List>
         <Divider />
         <List>
           <div>
-            <ListItem
-              button
-              color="primary"
-              component={Link}
-              to="/main/settings"
-            >
-              <ListItemIcon
-                className={classNames(classes.iconRotate)}
+            <Tooltip id="tooltip-top" title="Settings" placement="top">
+              <ListItem
+                button
+                color="primary"
+                component={Link}
+                to="/main/settings"
               >
-                <SettingsIcon />
-              </ListItemIcon>
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/main/report"
-            >
-              <ListItemIcon
-                className={classNames(classes.iconHoverRed)}
+                <ListItemIcon
+                  className={classNames(classes.iconRotate)}
+                >
+                  <SettingsIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
+            <Tooltip id="tooltip-top" title="Report" placement="top">
+              <ListItem
+                button
+                component={Link}
+                to="/main/report"
               >
-                <ReportIcon />
-              </ListItemIcon>
-            </ListItem>
+                <ListItemIcon
+                  className={classNames(classes.iconHoverRed)}
+                >
+                  <ReportIcon />
+                </ListItemIcon>
+              </ListItem>
+            </Tooltip>
           </div>
         </List>
       </Drawer >
