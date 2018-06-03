@@ -36,8 +36,7 @@ class UserSettings extends Component {
     } else {
       setTheme(darkTheme());
     }
-    console.log(this.state.isDarkTheme);
-
+    
     this.setState({ isDarkTheme: !this.state.isDarkTheme });
   }
 
