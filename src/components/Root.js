@@ -4,6 +4,10 @@ import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from 'classnames';
 
+// Hack to load old jss from material-ui first for dashboard
+// Then, actual jss from new material-ui overwrites the old jss.
+import Dashboard from "../material-dashboard-react/material-dashboard-react-html-v1.2.0/src/views/Dashboard/Dashboard";
+
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -19,6 +23,9 @@ import ReviewContainer from "../containers/ReviewContainer";
 import SearchContainer from "../containers/SearchContainer";
 import UserSettingsContainer from "../containers/UserSettingsContainer";
 import ReportContainer from "../containers/ReportContainer";
+
+// Part of hack
+let dashboard = <Dashboard />;
 
 const styles = theme => ({
   main: {
