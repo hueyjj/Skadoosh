@@ -30,6 +30,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates footer for homepage
+ * @class
+ */
 class Footer extends Component {
   render() {
     const { classes } = this.props;

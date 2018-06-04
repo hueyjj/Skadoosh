@@ -62,24 +62,14 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates search page
+ * @class
+ */
 class Search extends Component {
   constructor(props) {
     super(props);
-
-    // this._handleFlex = this._handleFlex.bind(this);
   }
-
-  componentDidMount() {
-  }
-
-  // _handleFlex() {
-  //   const { classes } = this.props;
-  //   console.log("called");
-  //   if (this.container && this.container.offsetWidth < 900) {
-  //     console.log("less than 900");
-  //     return classes.column;
-  //   } 
-  // }
 
   render() {
     const { classes, course } = this.props;

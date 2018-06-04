@@ -51,6 +51,10 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
+/**
+ * Creates drawer for sidebar
+ * @class
+ */
 class ClippedDrawer extends Component {
   render() {
     const { classes } = this.props;

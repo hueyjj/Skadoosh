@@ -1,3 +1,5 @@
+/** @module */
+
 import {
   FETCHING_COURSE,
   FETCHING_COURSE_SUCCESS,
@@ -39,6 +41,27 @@ export const fetchingCourseFail = ({
   type: FETCHING_COURSE_FAIL,
 });
 
+/**
+ * This callback receives an error or null after fetching courses 
+ * @callback fetchCourseCallback
+ * @param {Error} error Holds server response status and message
+ */
+/**
+ * Sends a POST request to server and receives an array of objects, where each object is a course.
+ * @function
+ * @param {object} course Course to search for
+ * @param {string} course.term Course term
+ * @param {string} course.status Course status
+ * @param {string} course.subject Course subject
+ * @param {string} course.courseNumber Course number
+ * @param {string} course.courseTitleKeyword Keywords to search for
+ * @param {string} course.instructorLastName Instructor's last name
+ * @param {string} course.generalEducation Type of general education
+ * @param {string} course.courseUnits Course units
+ * @param {string} course.meetingDays Course meeting days
+ * @param {string} course.courseCareer Course career option
+ * @param {fetchCourseCallback} callback - A post callback after attempting to fetch courses
+ */
 export const fetchCourse = ({
   term,
   status,
@@ -150,6 +173,17 @@ export const fetchingReviewsFail = ({
   type: FETCHING_REVIEWS_FAIL,
 });
 
+/**
+ * This callback receives an error or null after fetching reviews 
+ * @callback fetchReviewsCallback
+ * @param {Error} error Holds server response status and message
+ */
+/**
+ * Sends a POST request to server and receives an array of objects, where each object is a review.
+ * @function
+ * @param {string} searchTerm Search term to find reviews
+ * @param {fetchReviewsCallback} callback - A post callback after attempting to fetch reviews
+ */
 export const fetchReviews = (searchTerm, callback) => (dispatch, getState) => {
   dispatch(fetchingReviews);
 
@@ -221,6 +255,22 @@ export const fetchingCreateReviewFail = ({
   type: FETCHING_CREATE_REVIEW_FAIL,
 });
 
+/**
+ * This callback receives an error or null after creating reviews
+ * @callback fetchCreateReviewCallback
+ * @param {Error} error Holds server response status and message
+ */
+/**
+ * Creates a review by sending in a form object to the server
+ * @function
+ * @param {object} review Review to create
+ * @param {string} review.subject Course subject
+ * @param {string} review.term Course term
+ * @param {string} review.courseTitle Course title
+ * @param {string} review.rating User rating
+ * @param {string} review.comment User comment
+ * @param {fetchCreateReviewCallback} callback - A post callback after attempting to create a review
+ */
 export const fetchCreateReview = ({
   subject,
   term,

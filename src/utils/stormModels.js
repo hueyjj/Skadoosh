@@ -1,9 +1,15 @@
+/** @module */
+
 import {
   DiagramEngine,
   DiagramModel,
   DefaultNodeModel,
 } from "storm-react-diagrams";
 
+/**
+ * Creates a new engine
+ * @returns {DiagramEngine} New diagram engine
+ */
 export const newStormEngine = () => {
   let engine = new DiagramEngine();
   engine.installDefaultFactories();
@@ -11,11 +17,20 @@ export const newStormEngine = () => {
   return engine;
 };
 
+/**
+ * Adds a diagram model to a diagram engine
+ * @param {DiagramEngine} engine A diagram engine
+ * @param {DiagramModel} model A diagram model
+ */
 export const addStormDiagramModel = (engine, model) => {
   engine.setDiagramModel(model);
   return engine;
 };
 
+/**
+ * Creatse a new cmps model
+ * @returns {DiagramModel} model A cmps model
+ */
 export const newCMPSModel = () => {
   let model = new DiagramModel();
 

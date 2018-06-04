@@ -36,6 +36,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates review result page
+ * @class
+ */
 class ReviewResult extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +50,10 @@ class ReviewResult extends Component {
   componentDidMount() {
   }
 
+  /**
+   * Creates an array of jsx review results
+   * @returns {Array} Array of jsx elements reprsenting a review result
+   */
   createReviewList() {
     const {
       review,

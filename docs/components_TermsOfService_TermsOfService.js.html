@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/TermsOfService/TermsOfService.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/TermsOfService/TermsOfService.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import PropTypes from "prop-types";
+import classNames from 'classnames';
+
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+
+import Header from "../Home/Header";
+
+const styles = theme => ({
+  root: {
+  },
+  centerText: {
+    textAlign: "center",
+  },
+  paper: {
+    display: "block",
+    margin: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 5,
+  },
+  questionTitle: {
+    display: "block",
+    margin: "auto",
+    margin: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 4,
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
+  },
+  centerButton: {
+    textAlign: "right",
+  },
+  paddingTop: {
+    paddingTop: theme.spacing.unit * 3,
+  }
+});
+
+/**
+ * Creates terms of service PageMaker
+ * @class
+ */
+class TermsOfService extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      &lt;div className={classes.root}>
+        &lt;Header />
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography
+            variant="headline"
+            component="h3"
+            className={classes.centerText}
+          >
+            Terms of Service
+          &lt;/Typography>
+          &lt;Typography
+            variant="body1"
+          >
+            What is Lorem Ipsum?
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            
+            Why do we use it?
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            
+            
+            Where does it come from?
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+            
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+            
+            Where can I get some?
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+          &lt;/Typography>
+        &lt;/Paper>
+      &lt;/div >
+    );
+  }
+}
+
+TermsOfService.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(TermsOfService);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

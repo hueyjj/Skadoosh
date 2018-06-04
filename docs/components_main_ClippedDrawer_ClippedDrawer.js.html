@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/ClippedDrawer/ClippedDrawer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/ClippedDrawer/ClippedDrawer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
+import PropTypes from "prop-types";
+import classNames from 'classnames';
+
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
+import Tooltip from '@material-ui/core/Tooltip';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+import { withStyles } from '@material-ui/core/styles';
+
+import List from '@material-ui/core/List';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import HomeIcon from '@material-ui/icons/Home';
+import CalendarIcon from '@material-ui/icons/DateRange';
+import ChartIcon from '@material-ui/icons/InsertChart';
+import SearchIcon from '@material-ui/icons/Search';
+import ChatIcon from '@material-ui/icons/ChatBubbleOutline';
+import ReviewIcon from "@material-ui/icons/RateReview";
+import SettingsIcon from '@material-ui/icons/Settings';
+import ReportIcon from '@material-ui/icons/Report';
+
+const drawerWidth = 72;
+
+const styles = theme => ({
+  drawerPaper: {
+    position: 'fixed',
+    width: drawerWidth,
+    transition: "all 0.3s ease",
+  },
+  hide: {
+    // display: "none",
+    marginLeft: -drawerWidth, // Shift the drawer to the left when hidden
+    transition: "all 0.3s ease",
+  },
+  iconRotate: {
+    '&amp;:hover': {
+      color: blue[200],
+      transform: "rotate(90deg)",
+      transition: "all 0.3s ease",
+    },
+  },
+  iconHoverRed: {
+    "&amp;:hover": {
+      color: red[200],
+    }
+  },
+  toolbar: theme.mixins.toolbar,
+});
+
+/**
+ * Creates drawer for sidebar
+ * @class
+ */
+class ClippedDrawer extends Component {
+  render() {
+    const { classes } = this.props;
+    const { isDrawerOpen } = this.props.drawer;
+
+    return (
+      &lt;Drawer
+        variant="persistent"
+        open={true}
+        classes={{
+          paper: classNames(
+            classes.drawerPaper,
+            isDrawerOpen ? null : classes.hide,
+          ),
+        }}
+      >
+        &lt;div className={classes.toolbar} />
+        &lt;List>
+          &lt;div>
+            &lt;Tooltip id="tooltip-top" title="Home" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main"
+              >
+                &lt;ListItemIcon>
+                  &lt;HomeIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Calendar" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/calendar"
+              >
+                &lt;ListItemIcon>
+                  &lt;CalendarIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Chart" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/requirement"
+              >
+                &lt;ListItemIcon>
+                  &lt;ChartIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Chat" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/chat"
+              >
+                &lt;ListItemIcon>
+                  &lt;ChatIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Review" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/review"
+              >
+                &lt;ListItemIcon>
+                  &lt;ReviewIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Search" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/search"
+              >
+                &lt;ListItemIcon>
+                  &lt;SearchIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+          &lt;/div>
+        &lt;/List>
+        &lt;Divider />
+        &lt;List>
+          &lt;div>
+            &lt;Tooltip id="tooltip-top" title="Settings" placement="top">
+              &lt;ListItem
+                button
+                color="primary"
+                component={Link}
+                to="/main/settings"
+              >
+                &lt;ListItemIcon
+                  className={classNames(classes.iconRotate)}
+                >
+                  &lt;SettingsIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+            &lt;Tooltip id="tooltip-top" title="Report" placement="top">
+              &lt;ListItem
+                button
+                component={Link}
+                to="/main/report"
+              >
+                &lt;ListItemIcon
+                  className={classNames(classes.iconHoverRed)}
+                >
+                  &lt;ReportIcon />
+                &lt;/ListItemIcon>
+              &lt;/ListItem>
+            &lt;/Tooltip>
+          &lt;/div>
+        &lt;/List>
+      &lt;/Drawer >
+    );
+  }
+}
+
+ClippedDrawer.propTypes = {
+  classes: PropTypes.object.isRequired,
+  drawer: PropTypes.shape({
+    isDrawerOpen: PropTypes.bool.isRequired,
+  }).isRequired,
+};
+
+export default withStyles(styles)(ClippedDrawer);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

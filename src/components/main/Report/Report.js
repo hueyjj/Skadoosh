@@ -22,6 +22,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates report page
+ * @class
+ */
 class Report extends Component {
   render() {
     const { classes } = this.props;

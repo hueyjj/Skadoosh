@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/Report/Report.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/Report/Report.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import PropTypes from "prop-types";
+
+import Paper from '@material-ui/core/Paper';
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  card: {
+    maxWidth: 600,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+});
+
+/**
+ * Creates report page
+ * @class
+ */
+class Report extends Component {
+  render() {
+    const { classes } = this.props;
+    return (
+      &lt;div>
+        &lt;Card
+          className={classes.card}>
+          &lt;CardMedia
+            className={classes.media}
+            image="https://i.imgur.com/3qP3dCy.jpg"
+            title="Officer cat"
+          />
+          &lt;CardContent>
+            &lt;Typography
+              gutterBottom
+              variant="headline"
+              component="h2"
+            >
+              Cat Reporter
+            &lt;/Typography>
+            &lt;Typography
+              component="p"
+            >
+              Apologies! You were expecting something useful instead you got me, the fat cat.
+              &lt;br />
+              &lt;br />
+              &lt;br />
+              Here's something interesting:
+              &lt;br />
+              &lt;br />
+              Cats make about 100 different sounds. Dogs make only about 10.
+              &lt;br />
+              &lt;br />
+              &lt;br />
+              Therefore, we cats are superior than dogs.
+            &lt;/Typography>
+          &lt;/CardContent>
+          &lt;CardActions>
+            &lt;Button
+              size="small"
+              color="primary"
+              href="https://www.youtube.com/watch?v=SXnR4vXWP9A"
+              target="_blank"
+            >
+              Watch some cat videos to dilute your fustration
+            &lt;/Button>
+            &lt;Tooltip
+              id="tooltip-top"
+              title="Doesn't work! Too bad!"
+              placement="top">
+              &lt;Button
+                size="small"
+                color="primary"
+              >
+                Report me!
+              &lt;/Button>
+            &lt;/Tooltip>
+          &lt;/CardActions>
+        &lt;/Card>
+      &lt;/div>
+    );
+  }
+}
+
+Report.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Report);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

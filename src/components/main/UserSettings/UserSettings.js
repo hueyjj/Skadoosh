@@ -15,6 +15,10 @@ import {
 const styles = theme => ({
 });
 
+/**
+ * Creates user settings
+ * @class
+ */
 class UserSettings extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +30,10 @@ class UserSettings extends Component {
     this.handleTheme = this.handleTheme.bind(this);
   }
 
+  /**
+   * Changes global theme
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleTheme(e) {
     const {
       setTheme,

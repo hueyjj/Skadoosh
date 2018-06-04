@@ -17,6 +17,10 @@ const styles = theme => ({
   }),
 });
 
+/**
+ * Creates home page
+ * @class
+ */
 class Home extends Component {
   render() {
     return (

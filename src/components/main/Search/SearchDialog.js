@@ -46,6 +46,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates course search dialog
+ * @class
+ */
 class SearchDialog extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +68,7 @@ class SearchDialog extends Component {
       fetchCourse,
     } = this.props;
 
+    // Implicity search for course before displaying
     fetchCourse({
       term: "",
       status: "",
@@ -83,10 +88,18 @@ class SearchDialog extends Component {
     });
   }
 
+  /**
+   * Sets the form data
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   }
 
+  /**
+   * Creates an array of jsx course results
+   * @returns {Array} Array of jsx elements reprsenting a course result
+   */
   createResultList() {
     const {
       classes,

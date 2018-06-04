@@ -46,6 +46,10 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
 
+/**
+ * Main container holding all the roots
+ * @class
+ */
 class Root extends Component {
   render() {
     const {

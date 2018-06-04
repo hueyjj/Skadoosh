@@ -41,6 +41,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates frequently asked questions page
+ * @class
+ */
 class Faq extends Component {
   constructor(props) {
     super(props);

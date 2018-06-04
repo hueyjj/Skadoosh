@@ -11,6 +11,10 @@ import Dashboard from "../../../material-dashboard-react/material-dashboard-reac
 const styles = theme => ({
 });
 
+/**
+ * Creates dashboard page
+ * @class
+ */
 class Main extends Component {
   render() {
     return (

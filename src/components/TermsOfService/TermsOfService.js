@@ -41,6 +41,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates terms of service PageMaker
+ * @class
+ */
 class TermsOfService extends Component {
   constructor(props) {
     super(props);

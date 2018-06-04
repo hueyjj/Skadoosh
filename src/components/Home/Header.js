@@ -37,6 +37,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates header for homepage
+ * @class
+ */
 class Header extends Component {
   render() {
     const { classes } = this.props;

@@ -39,6 +39,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates requirement chart
+ * @class
+ */
 class RequirementChart extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +53,7 @@ class RequirementChart extends Component {
     };
 
     this.newEngine = this.newEngine.bind(this);
-    this.handleOpenSelectedCourse = this.handleOpenSelectedCourse.bind(this);
+    this.handleToggleDialog = this.handleToggleDialog.bind(this);
     this.createSearchDialog = this.createSearchDialog.bind(this);
     this.handleCloseDialog = this.handleCloseDialog.bind(this);
   }
@@ -60,6 +64,10 @@ class RequirementChart extends Component {
     });
   }
 
+  /**
+   * Creates the models for cmps along with a new engine to supply it
+   * @returns {DiagramEngine} A cmps diagram engine
+   */
   newEngine() {
     const {
       setSelectedCmpsCourse,
@@ -89,11 +97,19 @@ class RequirementChart extends Component {
     return engine;
   }
 
-  handleOpenSelectedCourse(e) {
+  /**
+   * Toggle search dialog visibility
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
+  handleToggleDialog(e) {
     // Toggle state
     this.setState({ searchDialogOpen: !this.state.searchDialogOpen });
   }
 
+  /**
+   * Creates search dialog
+   * @returns {SearchDialog} SearchDialog component
+   */
   createSearchDialog() {
     const {
       diagram,
@@ -112,6 +128,9 @@ class RequirementChart extends Component {
     );
   }
 
+  /**
+   * Closes the search dialog
+   */
   handleCloseDialog() {
     this.setState({ searchDialogOpen: false });
   }
@@ -137,7 +156,7 @@ class RequirementChart extends Component {
         <Button
           className={classes.margin}
           variant="raised"
-          onClick={this.handleOpenSelectedCourse}
+          onClick={this.handleToggleDialog}
         >
           View last selected course
         </Button>

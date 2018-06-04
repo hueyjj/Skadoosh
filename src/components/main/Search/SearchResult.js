@@ -39,6 +39,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates course search results
+ * @class
+ */
 class SearchResult extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +53,10 @@ class SearchResult extends Component {
   componentDidMount() {
   }
 
+  /**
+   * Creates an array of jsx review results
+   * @returns {Array} Array of jsx elements representing course results
+   */
   createResultList() {
     const {
       classes,

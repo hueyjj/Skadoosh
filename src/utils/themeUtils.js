@@ -1,9 +1,15 @@
+/** @module */
+
 import {
   MuiThemeProvider,
   createMuiTheme,
 } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 
+/**
+ * Creates a dark theme
+ * @returns {MuiTheme} A dark theme
+ */
 export const darkTheme = () => (
   createMuiTheme({
     palette: {
@@ -14,6 +20,10 @@ export const darkTheme = () => (
   })
 );
 
+/**
+ * Creates a default theme
+ * @returns {MuiTheme} A default theme
+ */
 export const defaultTheme = () => (
   createMuiTheme({
     palette: {

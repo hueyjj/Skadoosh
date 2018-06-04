@@ -29,6 +29,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates review form page
+ * @class
+ */
 class ReviewForm extends Component {
   constructor(props) {
     super(props);
@@ -44,10 +48,18 @@ class ReviewForm extends Component {
   componentDidMount() {
   }
 
+  /**
+   * Sets the form data
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   }
 
+  /**
+   * Submits the reviews search form
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleSubmit(e) {
     e.preventDefault();
 

@@ -41,6 +41,10 @@ const styles = theme => ({
   }
 });
 
+/**
+ * Creates privacy policy page
+ * @class
+ */
 class PrivacyPolicy extends Component {
   constructor(props) {
     super(props);

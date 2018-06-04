@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/Search/SearchForm.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/Search/SearchForm.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import PropTypes from "prop-types";
+import classNames from 'classnames';
+
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import MenuItem from "@material-ui/core/MenuItem";
+import { withStyles } from '@material-ui/core/styles';
+
+import { 
+  termOpts,
+  statusOpts,
+  subjectOpts,
+  geOpts,
+  meetingDaysOpts,
+  meetingTimesDaysOpts,
+  courseCareerOpts,
+} from "../../../utils/searchOptions";
+
+const styles = theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: 500,
+  },
+  column: {
+    flexDirection: "column",
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: "100%",
+  },
+});
+
+/**
+ * Creates course search form
+ * @class
+ */
+class SearchForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      term: "",
+      status: "",
+      subject: "",
+      courseNumber: "",
+      courseTitleKeyword: "",
+      instructorLastName: "",
+      generalEducation: "",
+      courseUnits: "",
+      meetingDays: "",
+      meetingTimes: "",
+      courseCareer: "",
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+  }
+
+  /**
+   * Sets the form data
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  }
+
+  /**
+   * Submits the course search form
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const { fetchCourse } = this.props;
+
+    fetchCourse({
+      term: this.state.term,
+      status: this.state.status,
+      subject: this.state.subject,
+      courseNumber: this.state.courseNumber,
+      courseTitleKeyword: this.state.courseTitleKeyword,
+      instructorLastName: this.state.instructorLastName,
+      generalEducation: this.state.generalEducation,
+      courseUnits: this.state.courseUnits,
+      meetingDays: this.state.meetingDays,
+      meetingTimes: this.state.meetingTimes,
+      courseCareer: this.state.courseCareer,
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+    });
+
+    // Persist form data after submit
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      &lt;form
+        onSubmit={this.handleSubmit}
+      >
+        &lt;div
+          className={classes.container}
+        >
+          &lt;TextField
+            id="select-term"
+            select
+            label="Term"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.term}
+            onChange={this.handleChange("term")}
+          >
+            {termOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-status"
+            select
+            label="Status"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.status}
+            onChange={this.handleChange("status")}
+          >
+            {statusOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-subject"
+            select
+            label="Subject"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.subject}
+            onChange={this.handleChange("subject")}
+          >
+            {subjectOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-course-number"
+            label="Course Number"
+            type="number"
+            className={classes.textField}
+            margin="normal"
+            onChange={this.handleChange("courseNumber")}
+          />
+          &lt;TextField
+            id="select-course-title-keyword"
+            label="Course Title Keyword"
+            className={classes.textField}
+            margin="normal"
+            onChange={this.handleChange("courseTitleKeyword")}
+          />
+          &lt;TextField
+            id="select-instructor-last-name"
+            label="Instructor Last Name"
+            className={classes.textField}
+            margin="normal"
+            onChange={this.handleChange("instructorLastName")}
+          />
+          &lt;TextField
+            id="select-general-education"
+            select
+            label="General Education"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.generalEducation}
+            onChange={this.handleChange("generalEducation")}
+          >
+            {geOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-course-units"
+            label="Course Units"
+            className={classes.textField}
+            margin="normal"
+            onChange={this.handleChange("courseUnits")}
+          />
+          &lt;TextField
+            id="select-meeting-days"
+            select
+            label="Meeting Days"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.meetingDays}
+            onChange={this.handleChange("meetingDays")}
+          >
+            {meetingDaysOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-meeting-times"
+            select
+            label="Meeting Times"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.meetingTimes}
+            onChange={this.handleChange("meetingTimes")}
+          >
+            {meetingTimesDaysOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;TextField
+            id="select-course-career"
+            select
+            label="Course Career"
+            className={classes.textField}
+            margin="normal"
+            value={this.state.courseCareer}
+            onChange={this.handleChange("courseCareer")}
+          >
+            {courseCareerOpts.map(option => (
+              &lt;MenuItem
+                key={option.value}
+                value={option.value}
+              >
+                {option.label}
+              &lt;/MenuItem>
+            ))}
+          &lt;/TextField>
+          &lt;Button
+            type="submit"
+            variant="raised"
+            color="primary"
+            className={classes.button}
+          >
+            Search
+          &lt;/Button>
+        &lt;/div>
+      &lt;/form>
+    );
+  }
+}
+
+SearchForm.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(SearchForm);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

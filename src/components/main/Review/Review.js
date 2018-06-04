@@ -26,6 +26,10 @@ import ReviewResult from "./ReviewResult";
 const styles = theme => ({
 });
 
+/**
+ * Creates review page
+ * @class
+ */
 class Review extends Component {
   constructor(props) {
     super(props);

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/main/Search/SearchResult.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/main/Search/SearchResult.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import PropTypes from "prop-types";
+import classNames from 'classnames';
+
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import MenuItem from "@material-ui/core/MenuItem";
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexGrow: 1,
+  },
+  container: {
+    width: 500,
+  },
+  column: {
+    flexDirection: "column",
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: "100%",
+  },
+  paper: {
+    display: "block",
+    margin: "auto",
+    marginTop: theme.spacing.unit * 1,
+    marginBottom: theme.spacing.unit * 1,
+    padding: theme.spacing.unit * 2,
+    minWidth: 350,
+  },
+  scroll: {
+    overflow: "scroll",
+  },
+});
+
+/**
+ * Creates course search results
+ * @class
+ */
+class SearchResult extends Component {
+  constructor(props) {
+    super(props);
+
+    this.createResultList = this.createResultList.bind(this);
+  }
+
+  componentDidMount() {
+  }
+
+  /**
+   * Creates an array of jsx review results
+   * @returns {Array} Array of jsx elements representing course results
+   */
+  createResultList() {
+    const {
+      classes,
+      course,
+    } = this.props;
+    const {
+      courseResults,
+    } = course;
+
+    return courseResults.map((result, index) => (
+      &lt;div
+        className={classes.container}
+        key={`${result.title}-${index}`}
+      >
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Course title
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.title}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Instructor
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.instructor}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Description
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.description}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Status
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.status}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Room
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.room}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Enrolled
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.enrolled}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Class notes
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.classNotes}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Meeting dates
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.meetingDates}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Enrollment
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.enrolled + "/" + result.enrollmentCapacity}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Course number
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.classNum}
+          &lt;/Typography>
+        &lt;/Paper>
+        &lt;Typography
+          variant="headline"
+          component="h4"
+        >
+          Credits
+        &lt;/Typography>
+        &lt;Paper
+          elevation={4}
+          className={classes.paper}
+        >
+          &lt;Typography component="p">
+            {result.credits}
+          &lt;/Typography>
+        &lt;/Paper>
+      &lt;/div>
+    ));
+  }
+
+  render() {
+    const { classes, course } = this.props;
+    const { courseResults } = course;
+
+    const searchResult = courseResults.length === 0 ? null : (
+      &lt;div>
+        {this.createResultList()}
+      &lt;/div>
+    );
+
+    return searchResult;
+  }
+}
+
+SearchResult.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(SearchResult);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

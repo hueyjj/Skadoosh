@@ -94,19 +94,361 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id="fetchLogin"><span class="type-signature">(constant) </span>fetchLogin<span class="type-signature"></span></h4>
 
+    
+
+    
+    <h4 class="name" id="fetchCourse"><span class="type-signature"></span>fetchCourse<span class="signature">(course, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
 <div class="description">
-    Logs the user in by sending a POST request with the user's email and password to the server
+    Sends a POST request to server and receives an array of objects, where each object is a course.
 </div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>course</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course to search for
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>term</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course term</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course status</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course subject</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>courseNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course number</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>courseTitleKeyword</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Keywords to search for</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>instructorLastName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Instructor's last name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>generalEducation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Type of general education</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>courseUnits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course units</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>meetingDays</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course meeting days</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>courseCareer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Course career option</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">loginCallback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A post callback after attempting to log in</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -142,7 +484,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions_AuthActions.js.html">actions/AuthActions.js</a>, <a href="actions_AuthActions.js.html#line35">line 35</a>
+        <a href="actions_ApiActions.js.html">actions/ApiActions.js</a>, <a href="actions_ApiActions.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -158,17 +500,96 @@
 
 
 
-        
-            
-<h4 class="name" id="fetchLogout"><span class="type-signature">(constant) </span>fetchLogout<span class="type-signature"></span></h4>
 
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+
+    
+
+    
+    <h4 class="name" id="FetchCourseCallback"><span class="type-signature"></span>FetchCourseCallback<span class="signature">(error)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
 <div class="description">
-    Log users out
+    This callback receives an error or null after fetching courses
 </div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Error</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Holds server response status and message</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -204,7 +625,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions_AuthActions.js.html">actions/AuthActions.js</a>, <a href="actions_AuthActions.js.html#line93">line 93</a>
+        <a href="actions_ApiActions.js.html">actions/ApiActions.js</a>, <a href="actions_ApiActions.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -220,11 +641,19 @@
 
 
 
-        
-    
 
-    
 
+
+
+
+
+
+
+
+
+
+
+            
     
 
     
@@ -238,13 +667,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Header.html">Header</a></li></ul><h3>Global</h3><ul><li><a href="global.html#fetchLogin">fetchLogin</a></li><li><a href="global.html#fetchLogout">fetchLogout</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li></ul><h3>Classes</h3><ul><li><a href="Header.html">Header</a></li><li><a href="Login.html">Login</a></li><li><a href="Signup.html">Signup</a></li></ul><h3>Global</h3><ul><li><a href="global.html#fetchCourse">fetchCourse</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 10 2018 01:47:32 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 19:50:55 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

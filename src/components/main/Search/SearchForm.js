@@ -35,6 +35,10 @@ const styles = theme => ({
   },
 });
 
+/**
+ * Creates course search form
+ * @class
+ */
 class SearchForm extends Component {
   constructor(props) {
     super(props);
@@ -60,10 +64,18 @@ class SearchForm extends Component {
   componentDidMount() {
   }
 
+  /**
+   * Sets the form data
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   }
 
+  /**
+   * Submits the course search form
+   * @param {Event} e React SyntheticEvent (Default DOM event) object 
+   */
   handleSubmit(e) {
     e.preventDefault();
 

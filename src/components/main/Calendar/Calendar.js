@@ -25,6 +25,10 @@ const noStyles = {
   },
 }
 
+/**
+ * Creates calendar page
+ * @class
+ */
 class Calendar extends Component {
   render() {
     const events = [

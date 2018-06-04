@@ -9,6 +9,10 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
 });
 
+/**
+ * Creates chat page
+ * @class
+ */
 class Chat extends Component {
   render() {
     return (
