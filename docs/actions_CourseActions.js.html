@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utils/themeUtils.js</title>
+    <title>JSDoc: Source: actions/CourseActions.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utils/themeUtils.js</h1>
+    <h1 class="page-title">Source: actions/CourseActions.js</h1>
 
     
 
@@ -29,36 +29,13 @@
             <pre class="prettyprint source linenums"><code>/** @module */
 
 import {
-  MuiThemeProvider,
-  createMuiTheme,
-} from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
+  ADD_SELECTED_COURSES,
+} from "../constants/CourseActions";
 
-/**
- * Creates a dark theme
- * @returns {MuiTheme} A dark theme
- */
-export const darkTheme = () => (
-  createMuiTheme({
-    palette: {
-      type: "dark",
-      primary: { main: purple[500] },
-      secondary: { main: "#11cb5f" },
-    },
-  })
-);
-
-/**
- * Creates a default theme
- * @returns {MuiTheme} A default theme
- */
-export const defaultTheme = () => (
-  createMuiTheme({
-    palette: {
-      // Nothing
-    },
-  })
-);</code></pre>
+export const addSelectedCourse = (course) => ({
+  type: ADD_SELECTED_COURSES,
+  payload: course,
+});</code></pre>
         </article>
     </section>
 

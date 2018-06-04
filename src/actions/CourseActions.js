@@ -1,3 +1,5 @@
+/** @module */
+
 import {
   ADD_SELECTED_COURSES,
 } from "../constants/CourseActions";

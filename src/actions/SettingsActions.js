@@ -1,3 +1,5 @@
+/** @module */
+
 import {
   SET_THEME,
 } from "../constants/SettingsActions";

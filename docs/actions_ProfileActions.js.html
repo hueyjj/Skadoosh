@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: utils/themeUtils.js</title>
+    <title>JSDoc: Source: actions/ProfileActions.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: utils/themeUtils.js</h1>
+    <h1 class="page-title">Source: actions/ProfileActions.js</h1>
 
     
 
@@ -29,36 +29,79 @@
             <pre class="prettyprint source linenums"><code>/** @module */
 
 import {
-  MuiThemeProvider,
-  createMuiTheme,
-} from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
+  SET_PROFILE,
+  FETCHING_PROFILE,
+  FETCHING_PROFILE_SUCCESS,
+  FETCHING_PROFILE_FAIL,
+} from "../constants/ProfileActions";
+
+export const setProfile = (profile) => ({
+  type: SET_PROFILE,
+  payload: profile,
+});
+
+export const fetchingProfile = ({
+  type: FETCHING_PROFILE,
+});
+
+export const fetchingProfileSuccess = ({
+  type: FETCHING_PROFILE_SUCCESS,
+});
+
+export const fetchingProfileFail = ({
+  type: FETCHING_PROFILE_FAIL,
+});
 
 /**
- * Creates a dark theme
- * @returns {MuiTheme} A dark theme
+ * This callback receives an error or null after attempting to retrieve profile information
+ * @callback fetchProfileCallback
+ * @param {Error} error Holds server response status and message
  */
-export const darkTheme = () => (
-  createMuiTheme({
-    palette: {
-      type: "dark",
-      primary: { main: purple[500] },
-      secondary: { main: "#11cb5f" },
-    },
-  })
-);
-
 /**
- * Creates a default theme
- * @returns {MuiTheme} A default theme
+ * Retreives the user's profile information and then sets it in redux's state
+ * @function
+ * @param {fetchProfileCallback} callback - A post callback after attempting to retreive profile information
  */
-export const defaultTheme = () => (
-  createMuiTheme({
-    palette: {
-      // Nothing
+export const fetchProfile = (callback) => (dispatch, getState) => {
+  dispatch(fetchingProfile);
+
+  let url = process.env.REACT_APP_API_URL + "api/profile";
+
+  fetch(url, {
+    method: "GET",
+    mode: "cors",
+    credentials: "include",
+    headers: {
     },
   })
-);</code></pre>
+    .then(res => {
+      return res.json()
+        .then((data) => ({
+          status: res.status,
+          body: data,
+        }))
+    })
+    .then((response) => {
+      let error;
+      if (response.status === 200) {
+        error = null;
+
+        dispatch(setProfile({
+          username: response.body.username,
+        }));
+        dispatch(fetchingProfileSuccess);
+      } else {
+        error = Error("Failed to retrieve profile data: " + response.status + " status code. Server message: " + response.body.message);
+        dispatch(fetchingProfileFail);
+      }
+
+      callback(error);
+    })
+    .catch((error) => {
+      dispatch(fetchingProfileFail);
+      console.log(error)
+    });
+};</code></pre>
         </article>
     </section>
 

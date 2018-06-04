@@ -1,3 +1,5 @@
+/** @module */
+
 import {
   SET_SELECTED_CMPS_COURSE,
 } from "../constants/DiagramActions";

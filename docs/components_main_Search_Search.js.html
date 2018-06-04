@@ -32,7 +32,13 @@ import PropTypes from "prop-types";
 import classNames from 'classnames';
 
 import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from '@material-ui/core/styles';
@@ -65,7 +71,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   container: {
-    display: "flex",
+    display: "inline-block",
     flexWrap: "wrap",
   },
   column: {
@@ -88,6 +94,19 @@ const styles = theme => ({
   scroll: {
     overflow: "scroll",
   },
+  card: {
+    maxWidth: 500,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  cardMargin: {
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 5,
+    marginLeft: theme.spacing.unit * 5,
+    marginRight: theme.spacing.unit * 5,
+  },
 });
 
 /**
@@ -97,39 +116,114 @@ const styles = theme => ({
 class Search extends Component {
   constructor(props) {
     super(props);
+
+    this.createUserCourseCards = this.createUserCourseCards.bind(this);
+  }
+
+  createUserCourseCards() {
+    const {
+      classes,
+      course,
+    } = this.props;
+    const {
+      selectedCourses,
+    } = course;
+
+    return selectedCourses.map((course, index) =>
+      &lt;Grid
+        item
+        xs={3}
+      >
+        &lt;Card
+          key={index}
+          className={classNames(
+            classes.card,
+            classes.cardMargin,
+          )}
+        >
+          &lt;CardMedia
+            className={classes.media}
+            image="https://i.imgur.com/6VFuW7A.jpg"
+            title="Some course"
+          />
+          &lt;CardContent>
+            &lt;Typography
+              gutterBottom
+              variant="headline"
+              component="h2"
+            >
+              {course.title}
+            &lt;/Typography>
+            &lt;Typography
+              component="p"
+            >
+              {/* FIXME: For now just show the first 200. Probably better to switch to the cards that can collapse information */}
+              {course.description.substring(0, 200)}
+            &lt;/Typography>
+          &lt;/CardContent>
+          &lt;CardActions>
+            &lt;Button
+              size="small"
+              color="primary"
+            >
+              Compare
+            &lt;/Button>
+            &lt;Button
+              size="small"
+              color="primary"
+            >
+              Magic
+            &lt;/Button>
+          &lt;/CardActions>
+        &lt;/Card>
+      &lt;/Grid>
+    );
   }
 
   render() {
-    const { classes, course } = this.props;
-    const { fetchCourse } = this.props;
+    const {
+      classes,
+      course,
+      addSelectedCourse,
+      fetchCourse,
+    } = this.props;
 
     return (
-      &lt;div
-        className={classNames(
-          classes.root,
-          // this._handleFlex(),
-        )}
-        ref={input => { this.container = input }}
-      >
-        &lt;Paper
-          elevation={4}
-          className={classes.paper}
-        >
-          &lt;SearchForm
-            fetchCourse={fetchCourse}
-          />
-        &lt;/Paper>
-        &lt;Paper
-          elevation={4}
+      &lt;div>
+        &lt;div
           className={classNames(
-            classes.paper,
-            classes.scroll,
+            classes.root,
+            // this._handleFlex(),
           )}
+          ref={input => { this.container = input }}
         >
-          &lt;SearchResult
-            course={course}
-          />
-        &lt;/Paper>
+          &lt;Paper
+            elevation={4}
+            className={classes.paper}
+          >
+            &lt;SearchForm
+              fetchCourse={fetchCourse}
+            />
+          &lt;/Paper>
+          &lt;Paper
+            elevation={4}
+            className={classNames(
+              classes.paper,
+              classes.scroll,
+            )}
+          >
+            &lt;SearchResult
+              course={course}
+              addSelectedCourse={addSelectedCourse}
+            />
+          &lt;/Paper>
+        &lt;/div>
+        &lt;Grid
+          container
+          spacing={24}
+        >
+          {this.createUserCourseCards()}
+        &lt;/Grid>
       &lt;/div>
     );
   }
@@ -149,13 +243,13 @@ export default withStyles(styles)(Search);</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions_ApiActions.html">actions/ApiActions</a></li><li><a href="module-actions_AuthActions.html">actions/AuthActions</a></li><li><a href="module-actions_CourseActions.html">actions/CourseActions</a></li><li><a href="module-actions_DiagramActions.html">actions/DiagramActions</a></li><li><a href="module-actions_ProfileActions.html">actions/ProfileActions</a></li><li><a href="module-actions_SettingsActions.html">actions/SettingsActions</a></li><li><a href="module-utils_stormModels.html">utils/stormModels</a></li><li><a href="module-utils_themeUtils.html">utils/themeUtils</a></li></ul><h3>Classes</h3><ul><li><a href="Calendar.html">Calendar</a></li><li><a href="Chat.html">Chat</a></li><li><a href="ClippedDrawer.html">ClippedDrawer</a></li><li><a href="Faq.html">Faq</a></li><li><a href="Footer.html">Footer</a></li><li><a href="Header.html">Header</a></li><li><a href="Home.html">Home</a></li><li><a href="Login.html">Login</a></li><li><a href="Main.html">Main</a></li><li><a href="PrivacyPolicy.html">PrivacyPolicy</a></li><li><a href="Report.html">Report</a></li><li><a href="RequirementChart.html">RequirementChart</a></li><li><a href="Review.html">Review</a></li><li><a href="ReviewForm.html">ReviewForm</a></li><li><a href="ReviewResult.html">ReviewResult</a></li><li><a href="Root.html">Root</a></li><li><a href="Search.html">Search</a></li><li><a href="SearchDialog.html">SearchDialog</a></li><li><a href="SearchForm.html">SearchForm</a></li><li><a href="SearchResult.html">SearchResult</a></li><li><a href="Signup.html">Signup</a></li><li><a href="TermsOfService.html">TermsOfService</a></li><li><a href="UserSettings.html">UserSettings</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 20:19:47 GMT-0700 (Pacific Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jun 03 2018 22:19:08 GMT-0700 (Pacific Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

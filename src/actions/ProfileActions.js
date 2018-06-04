@@ -1,3 +1,5 @@
+/** @module */
+
 import {
   SET_PROFILE,
   FETCHING_PROFILE,
@@ -22,6 +24,16 @@ export const fetchingProfileFail = ({
   type: FETCHING_PROFILE_FAIL,
 });
 
+/**
+ * This callback receives an error or null after attempting to retrieve profile information
+ * @callback fetchProfileCallback
+ * @param {Error} error Holds server response status and message
+ */
+/**
+ * Retreives the user's profile information and then sets it in redux's state
+ * @function
+ * @param {fetchProfileCallback} callback - A post callback after attempting to retreive profile information
+ */
 export const fetchProfile = (callback) => (dispatch, getState) => {
   dispatch(fetchingProfile);
 
