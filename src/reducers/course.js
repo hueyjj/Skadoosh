@@ -25,6 +25,9 @@ const initialState = {
     //   waitlistTotal: "",
     // },
   ],
+  selectedCourses: [
+    // course,
+  ],
 };
 
 const course = (state = initialState, action) => {
@@ -33,6 +36,15 @@ const course = (state = initialState, action) => {
       return {
         ...state,
         courseResults: action.payload,
+      };
+    }
+    case (types.ADD_SELECTED_COURSES): {
+      return {
+        ...state,
+        selectedCourses: [
+          ...state.selectedCourses,
+          action.payload,
+        ],
       };
     }
     default:

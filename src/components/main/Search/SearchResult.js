@@ -48,9 +48,18 @@ class SearchResult extends Component {
     super(props);
 
     this.createResultList = this.createResultList.bind(this);
+    this.handleSelectedCourse = this.handleSelectedCourse.bind(this);
   }
 
   componentDidMount() {
+  }
+
+  handleSelectedCourse(course) {
+    const {
+      addSelectedCourse,
+    } = this.props;
+
+    addSelectedCourse(course);
   }
 
   /**
@@ -71,6 +80,15 @@ class SearchResult extends Component {
         className={classes.container}
         key={`${result.title}-${index}`}
       >
+        <Button
+          type="submit"
+          variant="raised"
+          color="primary"
+          className={classes.button}
+          onClick={() => this.handleSelectedCourse(result)}
+        >
+          Add {result.title} to selected courses
+        </Button>
         <Typography
           variant="headline"
           component="h4"
