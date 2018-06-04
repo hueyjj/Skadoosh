@@ -1,15 +1,15 @@
 import * as types from "../constants/DiagramActions";
 
 const initialState = {
-  selectedCmpsCourse: "",
+  selectedCourse: "",
 };
 
 const diagram = (state = initialState, action) => {
   switch (action.type) {
-    case (types.SET_SELECTED_CMPS_COURSE): {
+    case (types.SET_SELECTED_COURSE): {
       return {
         ...state,
-        selectedCmpsCourse: action.payload,
+        selectedCourse: action.payload,
       };
     }
     default:

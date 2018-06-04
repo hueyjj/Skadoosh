@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import "storm-react-diagrams/dist/style.min.css";
 
 import {
-  setSelectedCmpsCourse,
+  setSelectedCourse,
 } from "../actions/DiagramActions";
 
 import RequirementChart from '../components/main/RequirementChart';
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  setSelectedCmpsCourse,
+  setSelectedCourse,
   fetchCourse,
 };
 

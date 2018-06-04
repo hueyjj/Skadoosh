@@ -74,7 +74,7 @@ class SearchDialog extends Component {
       status: "",
       subject: "",
       courseNumber: "",
-      courseTitleKeyword: diagram.selectedCmpsCourse,
+      courseTitleKeyword: diagram.selectedCourse,
       instructorLastName: "",
       generalEducation: "",
       courseUnits: "",

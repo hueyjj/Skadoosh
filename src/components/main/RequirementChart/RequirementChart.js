@@ -12,6 +12,7 @@ import {
   newStormEngine,
   addStormDiagramModel,
   newCMPSModel,
+  newGeModel,
 } from "../../../utils/stormModels";
 
 import "../../../styles/StormDiagram.css";
@@ -52,7 +53,9 @@ class RequirementChart extends Component {
       searchDialogOpen: false,
     };
 
-    this.newEngine = this.newEngine.bind(this);
+    this.newCmpsEngine = this.newCmpsEngine.bind(this);
+    this.handleGeChart = this.handleGeChart.bind(this);
+    this.handleCmpsChart = this.handleCmpsChart.bind(this);
     this.handleToggleDialog = this.handleToggleDialog.bind(this);
     this.createSearchDialog = this.createSearchDialog.bind(this);
     this.handleCloseDialog = this.handleCloseDialog.bind(this);
@@ -60,7 +63,7 @@ class RequirementChart extends Component {
 
   componentDidMount() {
     this.setState({
-      engine: this.newEngine(),
+      engine: this.newCmpsEngine(),
     });
   }
 
@@ -68,9 +71,9 @@ class RequirementChart extends Component {
    * Creates the models for cmps along with a new engine to supply it
    * @returns {DiagramEngine} A cmps diagram engine
    */
-  newEngine() {
+  newCmpsEngine() {
     const {
-      setSelectedCmpsCourse,
+      setSelectedCourse,
     } = this.props;
 
     let cmpsModel = newCMPSModel();
@@ -86,7 +89,7 @@ class RequirementChart extends Component {
             } else {
               node.color = "grey";
             }
-            setSelectedCmpsCourse(node.name);
+            setSelectedCourse(node.name);
           }
         },
       })
@@ -95,6 +98,52 @@ class RequirementChart extends Component {
     let engine = newStormEngine();
     engine = addStormDiagramModel(engine, cmpsModel);
     return engine;
+  }
+
+  /**
+   * Creates the models for ge along with a new engine to supply it
+   * @returns {DiagramEngine} A ge diagram engine
+   */
+  newGeEngine() {
+    const {
+      setSelectedCourse,
+    } = this.props;
+
+    let geModel = newGeModel();
+    let geModels = geModel.getNodes();
+    Object.keys(geModels).forEach((key) => {
+      let node = geModels[key];
+      node.addListener({
+        selectionChanged: (e) => {
+          // Toggle colors. This works for some reason.
+          if (node.isSelected()) {
+            if (node.color == "grey") {
+              node.color = "green";
+            } else {
+              node.color = "grey";
+            }
+            setSelectedCourse(node.name);
+          }
+        },
+      })
+    });
+
+    let engine = newStormEngine();
+    engine = addStormDiagramModel(engine, geModel);
+    return engine;
+  }
+
+  handleGeChart(e) {
+    this.setState({
+      engine: this.newGeEngine(),
+    });
+    console.log("new ge engine");
+  }
+
+  handleCmpsChart(e) {
+    this.setState({
+      engine: this.newCmpsEngine(),
+    });
   }
 
   /**
@@ -159,6 +208,20 @@ class RequirementChart extends Component {
           onClick={this.handleToggleDialog}
         >
           View last selected course
+        </Button>
+        <Button
+          className={classes.margin}
+          variant="raised"
+          onClick={this.handleGeChart}
+        >
+          Switch to GE chart
+        </Button>
+        <Button
+          className={classes.margin}
+          variant="raised"
+          onClick={this.handleCmpsChart}
+        >
+          Switch to CMPS chart
         </Button>
 
         {this.state.searchDialogOpen ? this.createSearchDialog() : null}

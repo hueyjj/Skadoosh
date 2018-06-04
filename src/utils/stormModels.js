@@ -28,7 +28,7 @@ export const addStormDiagramModel = (engine, model) => {
 };
 
 /**
- * Creatse a new cmps model
+ * Creates a new cmps model
  * @returns {DiagramModel} model A cmps model
  */
 export const newCMPSModel = () => {
@@ -180,6 +180,101 @@ export const newCMPSModel = () => {
     link10,
     link11,
     link12,
+  );
+
+  model.setLocked(true);
+
+  return model;
+};
+
+/**
+ * Creates a new ge model
+ * @returns {DiagramModel} model A ge model
+ */
+export const newGeModel = () => {
+  let model = new DiagramModel();
+
+  let nodeCC = new DefaultNodeModel("CC", "grey");
+  let portCC = nodeCC.addOutPort("Cross-Cultural Analysis");
+  nodeCC.setPosition(300, 100);
+
+  let nodeER = new DefaultNodeModel("ER", "grey");
+  let portER = nodeER.addOutPort("Ethnicity and Race");
+  nodeER.setPosition(300, 200);
+
+  let nodeIM = new DefaultNodeModel("IM", "grey");
+  let portIM = nodeIM.addOutPort("Interpreting Arts and Media");
+  nodeIM.setPosition(300, 300);
+
+  let nodeMF = new DefaultNodeModel("MF", "grey");
+  let portMF = nodeMF.addOutPort("Mathematical and Formal Reasoning");
+  nodeMF.setPosition(300, 400);
+
+  let nodeSI = new DefaultNodeModel("SI", "grey");
+  let portSI = nodeSI.addOutPort("Scientific Inquiry");
+  nodeSI.setPosition(300, 500);
+
+  let nodeSR = new DefaultNodeModel("SR", "grey");
+  let portSR = nodeSR.addOutPort("Statistical Reasoning");
+  nodeSR.setPosition(300, 600);
+  
+  let nodeTA = new DefaultNodeModel("TA", "grey");
+  let portTA = nodeTA.addOutPort("Textual Analysis");
+  nodeTA.setPosition(300, 700);
+
+  let nodePEE = new DefaultNodeModel("PE-E", "grey");
+  let portPEE = nodePEE.addOutPort("Perspectives (Environmental Awareness)");
+  nodePEE.setPosition(300, 800);
+
+  let nodePEH = new DefaultNodeModel("PE-H", "grey");
+  let portPEH = nodePEH.addOutPort("Perspectives (Human Behavior)");
+  nodePEH.setPosition(300, 900);
+
+  let nodePET = new DefaultNodeModel("PE-T", "grey");
+  let portPET = nodePET.addOutPort("Perspectives (Technology and Society)");
+  nodePET.setPosition(600, 100);
+
+  let nodePRE = new DefaultNodeModel("PR-E", "grey");
+  let portPRE = nodePRE.addOutPort("Practice (Collaborative Endeavor)");
+  nodePRE.setPosition(600, 200);
+
+  let nodePRC = new DefaultNodeModel("PR-C", "grey");
+  let portPRC = nodePRC.addOutPort("Practice (Creative Process)");
+  nodePRC.setPosition(600, 300);
+
+  let nodePRS = new DefaultNodeModel("PR-S", "grey");
+  let portPRS = nodePRS.addOutPort("Practice (Service Learning)");
+  nodePRS.setPosition(600, 400);
+
+  let nodeC1 = new DefaultNodeModel("C1", "grey");
+  let portC1 = nodeC1.addOutPort("Composition (1)");
+  nodeC1.setPosition(600, 500);
+
+  let nodeC2 = new DefaultNodeModel("C2", "grey");
+  let portC2 = nodeC2.addOutPort("Composition (2)");
+  nodeC2.setPosition(600, 600);
+
+  let nodeDC = new DefaultNodeModel("DC", "grey");
+  let portDC = nodeDC.addOutPort("Disciplinary Communication");
+  nodeDC.setPosition(600, 700);
+
+  let models = model.addAll(
+    nodeCC,
+    nodeER,
+    nodeIM,
+    nodeMF,
+    nodeSI,
+    nodeSR,
+    nodeTA,
+    nodePEE,
+    nodePEH,
+    nodePET,
+    nodePRE,
+    nodePRC,
+    nodePRS,
+    nodeC1,
+    nodeC2,
+    nodeDC,
   );
 
   model.setLocked(true);
