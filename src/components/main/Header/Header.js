@@ -52,6 +52,16 @@ class Header extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  componentWillMount() {
+    const { fetchProfile } = this.props;
+
+    fetchProfile((error) => {
+      if (error) {
+        throw error;
+      }
+    });
+  }
+
   /**
    * Toggles the drawer
    * @param {Event} e React SyntheticEvent (Default DOM event) object 
@@ -87,8 +97,17 @@ class Header extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { isDrawerOpen } = this.props.drawer;
+    const {
+      classes,
+      profile,
+      drawer,
+    } = this.props;
+    const { 
+      isDrawerOpen 
+    } = drawer;
+    const {
+      user,
+    } = profile;
 
     return (
       <div className={classes.root}>
@@ -116,7 +135,7 @@ class Header extends Component {
             <Typography
               variant="button"
             >
-              Email or real name or cruz id here?
+              {user.username}
             </Typography>
             <IconButton
               color="primary"

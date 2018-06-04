@@ -7,6 +7,7 @@ import course from "../reducers/course";
 import review from "../reducers/review";
 import diagram from "../reducers/diagram";
 import settings from "../reducers/settings";
+import profile from "../reducers/profile";
 
 const rootReducer = combineReducers({
   drawer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   review,
   diagram,
   settings,
+  profile,
 });
 
 export default rootReducer;

@@ -19,6 +19,7 @@ class Main extends Component {
   render() {
     return (
       <div>
+        {/* FIXME This will output some error to console.log because we are mixing two different major version of material-ui (old and next) */}
         <Dashboard />
       </div>
     );

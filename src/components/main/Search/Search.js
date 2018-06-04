@@ -97,7 +97,9 @@ class Search extends Component {
       classes,
       course,
     } = this.props;
-    const { selectedCourses } = course;
+    const {
+      selectedCourses,
+    } = course;
 
     return selectedCourses.map((course, index) =>
       <Grid

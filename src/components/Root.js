@@ -55,6 +55,7 @@ class Root extends Component {
     const {
       classes,
       settings,
+      profile,
       match,
     } = this.props;
     const {
@@ -63,6 +64,7 @@ class Root extends Component {
       showDrawer,
       hideDrawer,
       fetchLogout,
+      fetchProfile,
     } = this.props;
     const {
       isDrawerOpen,
@@ -76,9 +78,11 @@ class Root extends Component {
           <Header
             history={history}
             drawer={drawer}
+            profile={profile}
             showDrawer={showDrawer}
             hideDrawer={hideDrawer}
             fetchLogout={fetchLogout}
+            fetchProfile={fetchProfile}
           />
           <div
             className={classNames(
