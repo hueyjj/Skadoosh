@@ -20,6 +20,8 @@ npm run serve
 
 Access the application at https://localhost:3000
 
+## Server
+Skadoosh is meant to be used in conjunction with [MangoMountain](https://github.com/hueyjj/MangoMountain), a django server. Please the instructions there to setup the server.
 
 ## Skadoosh
 Skadoosh is a web application built on top of the UCSC's class searching API with support for tracking major and GE requirements, scheduling classes, login system, class and professor rating system with user reviews. 
