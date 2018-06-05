@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -66,18 +67,40 @@ class Footer extends Component {
               >
                 <ListItemText primary="Privacy Policy" />
               </ListItem>
-              <ListItem button>
-                <ListItemText primary="License" />
+              <ListItem
+                button
+                component="a"
+                href="https://github.com/hueyjj/Skadoosh/blob/master/LICENSE"
+                target="_blank"
+              >
+                <ListItemText
+                  primary="License"
+                />
               </ListItem>
             </List>
             <List className={classes.list}>
-              <ListItem button>
+              <ListItem
+                button
+                component="a"
+                href="https://github.com/hueyjj/Skadoosh"
+                target="_blank"
+              >
                 <ListItemText primary="Github" />
               </ListItem>
-              <ListItem button>
+              <ListItem
+                button
+                component="a"
+                href="https://github.com/hueyjj/Skadoosh/issues"
+                target="_blank"
+              >
                 <ListItemText primary="Contact Us" />
               </ListItem>
-              <ListItem button>
+              <ListItem
+                button
+                component="a"
+                href="https://github.com/hueyjj/Skadoosh/blob/master/Information.md"
+                target="_blank"
+              >
                 <ListItemText primary="About" />
               </ListItem>
             </List>
