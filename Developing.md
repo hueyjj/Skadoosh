@@ -4,6 +4,18 @@ git clone https://github.com/hueyjj/skadoosh
 cd skadoosh
 npm install
 ```
+Then
+```sh
+npm run dev
+```
+or 
+```sh
+npm run serve
+```
+
+And that's it!
+
+The rest of this guide is for developers or those that want to do more.
 
 # Building
 Compiles the source into a static bundle to be served.
