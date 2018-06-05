@@ -17,3 +17,21 @@ The school's class search API at https://pisa.ucsc.edu/class_search/ has a few p
 
 The user interface in MyUCSC portal that has a schedule builder is unintuitive, buggy, and something from the early 2000s. The portal overall has an incredibly high delay (in seconds) when navigating the site, submitting data, or using any basic functionality really.
 
+## Documentation
+Documentation can be found locally when the repo is cloned. The index.html can be found at Skadoosh/docs/index.html. Please use a webbrowser to view the html contents.
+
+## Screenshots
+Homepage
+![Homepage](https://raw.githubusercontent.com/hueyjj/Skadoosh/master/screenshots/Homepage.PNG)
+
+Signup
+![Signup](https://raw.githubusercontent.com/hueyjj/Skadoosh/master/screenshots/Signup.PNG)
+
+Calendar
+![Calendar](https://raw.githubusercontent.com/hueyjj/Skadoosh/master/screenshots/Calendar.PNG)
+
+Review
+![Review](https://raw.githubusercontent.com/hueyjj/Skadoosh/master/screenshots/Review.PNG)
+
+Search
+![Search](https://raw.githubusercontent.com/hueyjj/Skadoosh/master/screenshots/Search.PNG)
