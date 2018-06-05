@@ -2,7 +2,7 @@
 - npm https://www.npmjs.com/ 
 - nodejs https://nodejs.org/en/ 
 
-# Setup
+# Installation/Setup
 ```sh
 git clone https://github.com/hueyjj/skadoosh
 cd skadoosh
