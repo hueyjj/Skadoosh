@@ -4,7 +4,21 @@ For team members, refer to [Information.md](https://github.com/hueyjj/Skadoosh/b
 
 
 ## Installation
-Please refer to [Developing.md](https://github.com/hueyjj/Skadoosh/blob/master/Developing.md) for more information.
+```sh
+git clone https://github.com/hueyjj/skadoosh
+cd skadoosh
+npm install
+```
+Then
+```sh
+npm run dev
+```
+or 
+```sh
+npm run serve
+```
+
+Access the application at https://localhost:3000
 
 
 ## Skadoosh
